@@ -7,28 +7,19 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="icon" href="/favicon.ico">
   <style>
-    .star {
-      color: #ffd700;
-      transition: filter 0.6s;
-    }
-    .star.shine {
-      filter: drop-shadow(0 0 6px #fff700) brightness(1.2);
-    }
+    .star { color: #ffd700; transition: filter 0.6s; }
+    .star.shine { filter: drop-shadow(0 0 6px #fff700) brightness(1.2); }
     .bg-panels {
       position: fixed; inset: 0; z-index: -1;
       display: flex; width: 100vw; height: 100vh;
-      overflow: hidden;
-      pointer-events: none;
+      overflow: hidden; pointer-events: none;
     }
     .panel {
-      flex: 1;
-      height: 100vh;
+      flex: 1; height: 100vh;
       background: linear-gradient(135deg, #1e293b80 70%, #6366f1 100%);
-      opacity: 0.6;
-      transform: translateY(0);
+      opacity: 0.6; transform: translateY(0);
       transition: transform 0.5s cubic-bezier(.61,-0.21,.29,1.18);
-      border-radius: 32px;
-      margin: 0 6px;
+      border-radius: 32px; margin: 0 6px;
     }
     @media(max-width: 900px) { .bg-panels { display: none; } }
   </style>
@@ -40,17 +31,19 @@
     <div class="panel"></div>
     <div class="panel"></div>
   </div>
-  <!-- Sticky Header -->
-  <nav class="fixed top-0 left-0 w-full z-20 bg-gray-950 bg-opacity-95 backdrop-blur px-8 py-4 flex justify-between items-center shadow-lg">
-    <span class="text-2xl font-bold text-indigo-400">OpenBotHost</span>
-    <div class="space-x-6 hidden md:block">
-      <a href="#features" class="hover:text-indigo-200 font-medium">Features</a>
-      <a href="#how" class="hover:text-indigo-200 font-medium">How It Works</a>
-      <a href="#contact" class="hover:text-indigo-200 font-medium">Contact</a>
-      <a href="https://control.openbothost.com" class="bg-indigo-600 px-4 py-2 rounded font-bold text-white hover:bg-green-500 transition shadow">Launch Panel</a>
+  <nav class="fixed top-0 left-0 w-full z-20 bg-gray-950 bg-opacity-60 backdrop-blur-lg border-b border-indigo-800 shadow-xl"
+      style="backdrop-filter: blur(16px);">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-8 py-4">
+      <span class="text-2xl font-bold text-indigo-400">OpenBotHost</span>
+      <div class="space-x-6 hidden md:block">
+        <a href="#features" class="hover:text-indigo-200 font-medium">Features</a>
+        <a href="#how" class="hover:text-indigo-200 font-medium">How It Works</a>
+        <a href="#contact" class="hover:text-indigo-200 font-medium">Contact</a>
+        <a href="https://control.openbothost.com" class="bg-indigo-600 px-4 py-2 rounded font-bold text-white hover:bg-green-500 transition shadow">Launch Panel</a>
+      </div>
     </div>
   </nav>
-  <section class="py-24 text-center relative">
+  <section class="py-28 text-center relative">
     <h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-400 bg-clip-text text-transparent">OpenBotHost</h1>
     <div class="mb-4 flex justify-center items-center">
       <div id="star-rating" class="flex space-x-1 text-2xl">
@@ -128,7 +121,6 @@
     <p>© 2025 OpenBotHost | Owner: Sharath | <a href="/discord" class="text-indigo-400">Discord</a> | <a href="/privacy" class="text-indigo-400">Privacy</a> | <a href="/contact" class="text-indigo-400">Contact</a></p>
   </footer>
   <script>
-    // Shining Stars Animation
     function shineStars() {
       const stars = document.querySelectorAll('.star');
       let shineIdx = 0;
@@ -138,8 +130,6 @@
       }, 600);
     }
     shineStars();
-
-    // Dynamic panels scroll effect
     window.addEventListener('scroll', () => {
       const panels = document.querySelectorAll('.panel');
       let scrollPercent = window.scrollY / document.body.scrollHeight;
