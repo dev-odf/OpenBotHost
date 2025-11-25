@@ -5,7 +5,6 @@
   <title>OpenBotHost – Free Discord Bot Hosting</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" href="/favicon.ico">
   <style>
     body.bg-gray-900 {
@@ -27,30 +26,28 @@
     }
     nav, footer { background: #21194e !important; }
     @media(max-width: 900px) { .bg-panels { display: none; } }
-    /* Animation bar styles */
-    .feature-marquee-container {
+    .feature-ribbon-container {
       width: 100vw; overflow: hidden;
       background: linear-gradient(90deg, #271858 80%, #3a2373 100%);
       position: relative;
       z-index: 19;
       height: 54px;
       border-bottom: 1px solid #392f67;
+      display: flex;
+      align-items: center;
     }
-    .feature-marquee {
-      width: fit-content;
-      display: flex; align-items: center; gap: 34px;
+    .feature-ribbon-track {
+      display: flex;
+      align-items: center;
+      gap: 34px;
       font-size: 1.13rem;
       color: #fafaff;
       font-weight: 500;
       white-space: nowrap;
-      animation: marquee 13s linear infinite;
+      will-change: transform;
     }
-    @keyframes marquee {
-      from { transform: translateX(0);}
-      to { transform: translateX(-50%);}
-    }
-    .feature-marquee span { display: flex; align-items: center; gap: 7px; }
-    .feature-marquee i { color: #eceff7; font-size: 1.3em; }
+    .feature-ribbon-track span { display: flex; align-items: center; gap: 7px; }
+    .feature-ribbon-track img { height: 1.4em; width: 1.4em; vertical-align: middle; }
   </style>
 </head>
 <body class="bg-gray-900 text-white">
@@ -71,25 +68,16 @@
       </div>
     </div>
   </nav>
-  <div class="feature-marquee-container">
-    <div class="feature-marquee">
-      <span><i class="fa-solid fa-magnifying-glass-chart"></i> Real-Time Performance Insights</span>
-      <span><i class="fa-solid fa-bolt"></i> Flexible Customization</span>
-      <span><i class="fa-solid fa-server"></i> Lightning-Fast Servers</span>
-      <span><i class="fa-solid fa-wifi"></i> Reliable Connectivity</span>
-      <span><i class="fa-solid fa-headset"></i> Friendly Support</span>
-      <span><i class="fa-solid fa-shield-halved"></i> Robust DDoS Protection</span>
-      <span><i class="fa-solid fa-gears"></i> Easy Setup</span>
-      <span><i class="fa-solid fa-expand"></i> Effortless Scalability</span>
-      <!-- Repeat some icons for continuous loop -->
-      <span><i class="fa-solid fa-magnifying-glass-chart"></i> Real-Time Performance Insights</span>
-      <span><i class="fa-solid fa-bolt"></i> Flexible Customization</span>
-      <span><i class="fa-solid fa-server"></i> Lightning-Fast Servers</span>
-      <span><i class="fa-solid fa-wifi"></i> Reliable Connectivity</span>
-      <span><i class="fa-solid fa-headset"></i> Friendly Support</span>
-      <span><i class="fa-solid fa-shield-halved"></i> Robust DDoS Protection</span>
-      <span><i class="fa-solid fa-gears"></i> Easy Setup</span>
-      <span><i class="fa-solid fa-expand"></i> Effortless Scalability</span>
+  <div class="feature-ribbon-container">
+    <div id="ribbonTrack" class="feature-ribbon-track">
+      <span><img src="src/icon-nobg.png" alt="icon"> Real-Time Performance Insights</span>
+      <span><img src="src/icon-nobg.png" alt="icon"> Flexible Customization</span>
+      <span><img src="src/icon-nobg.png" alt="icon"> Lightning-Fast Servers</span>
+      <span><img src="src/icon-nobg.png" alt="icon"> Reliable Connectivity</span>
+      <span><img src="src/icon-nobg.png" alt="icon"> Friendly Support</span>
+      <span><img src="src/icon-nobg.png" alt="icon"> Robust DDoS Protection</span>
+      <span><img src="src/icon-nobg.png" alt="icon"> Easy Setup</span>
+      <span><img src="src/icon-nobg.png" alt="icon"> Effortless Scalability</span>
     </div>
   </div>
   <section class="py-28 text-center relative">
@@ -170,6 +158,27 @@
       }, 600);
     }
     shineStars();
+
+    // Feature ribbon JS (infinite scroll for custom icon bar)
+    const ribbonTrack = document.getElementById('ribbonTrack');
+    const ribbonClone = ribbonTrack.cloneNode(true);
+    ribbonTrack.parentNode.appendChild(ribbonClone);
+    ribbonClone.style.position = 'absolute';
+    ribbonClone.style.left = ribbonTrack.offsetWidth + 'px';
+    ribbonClone.style.top = '0';
+
+    let ribbonOffset = 0, speed = 1.1;
+    function animateRibbon() {
+      ribbonOffset -= speed;
+      if (ribbonOffset <= -ribbonTrack.offsetWidth) {
+        ribbonOffset = 0;
+      }
+      ribbonTrack.style.transform = `translateX(${ribbonOffset}px)`;
+      ribbonClone.style.transform = `translateX(${ribbonOffset + ribbonTrack.offsetWidth}px)`;
+      requestAnimationFrame(animateRibbon);
+    }
+    animateRibbon();
+
     window.addEventListener('scroll', () => {
       const panels = document.querySelectorAll('.panel');
       let scrollPercent = window.scrollY / document.body.scrollHeight;
