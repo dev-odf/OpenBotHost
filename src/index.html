@@ -5,49 +5,23 @@
   <title>OpenBotHost – Free Discord Bot Hosting</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="src/icon-nobg.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body.bg-gray-900 {
       background: linear-gradient(135deg, #1a164d 60%, #48146b 100%) !important;
     }
     .star { color: #ffd700; transition: filter 0.6s; }
     .star.shine { filter: drop-shadow(0 0 6px #fff700) brightness(1.2); }
-    .bg-panels {
-      position: fixed; inset: 0; z-index: -1;
-      display: flex; width: 100vw; height: 100vh;
-      overflow: hidden; pointer-events: none;
-    }
-    .panel {
-      flex: 1; height: 100vh;
-      background: linear-gradient(135deg, #1b2454c4 70%, #6d36c9 100%);
-      opacity: 0.45; transform: translateY(0);
-      transition: transform 0.5s cubic-bezier(.61,-0.21,.29,1.18);
-      border-radius: 32px; margin: 0 6px;
-    }
+    .bg-panels { position: fixed; inset: 0; z-index: -1; display: flex; width: 100vw; height: 100vh; overflow: hidden; pointer-events: none; }
+    .panel { flex: 1; height: 100vh; background: linear-gradient(135deg, #1b2454c4 70%, #6d36c9 100%); opacity: 0.45; transform: translateY(0); transition: transform 0.5s cubic-bezier(.61,-0.21,.29,1.18); border-radius: 32px; margin: 0 6px; }
     nav, footer { background: #21194e !important; }
     @media(max-width: 900px) { .bg-panels { display: none; } }
-    .feature-ribbon-container {
-      width: 100vw; overflow: hidden;
-      background: linear-gradient(90deg, #271858 80%, #3a2373 100%);
-      position: relative;
-      z-index: 19;
-      height: 54px;
-      border-bottom: 1px solid #392f67;
-      display: flex;
-      align-items: center;
-    }
-    .feature-ribbon-track {
-      display: flex;
-      align-items: center;
-      gap: 34px;
-      font-size: 1.13rem;
-      color: #fafaff;
-      font-weight: 500;
-      white-space: nowrap;
-      will-change: transform;
-    }
+    .feature-ribbon-container { width: 100vw; overflow: hidden; background: linear-gradient(90deg, #271858 80%, #3a2373 100%); position: relative; z-index: 19; height: 54px; border-bottom: 1px solid #392f67; display: flex; align-items: center; }
+    .feature-ribbon-track { display: flex; align-items: center; gap: 34px; font-size: 1.13rem; color: #fafaff; font-weight: 500; white-space: nowrap; will-change: transform; }
     .feature-ribbon-track span { display: flex; align-items: center; gap: 7px; }
-    .feature-ribbon-track img { height: 1.4em; width: 1.4em; vertical-align: middle; }
+    .feature-ribbon-track i { font-size: 1.4em; vertical-align: middle; }
+    .header-logo { height: 2.1em; width: 2.1em; margin-right:12px; vertical-align:middle; border-radius:14px; box-shadow: 0 0 8px #805ad5;}
   </style>
 </head>
 <body class="bg-gray-900 text-white">
@@ -57,10 +31,12 @@
     <div class="panel"></div>
     <div class="panel"></div>
   </div>
-  <nav class="fixed top-0 left-0 w-full z-20 bg-gray-950 bg-opacity-60 backdrop-blur-lg border-b border-indigo-800 shadow-xl"
-      style="backdrop-filter: blur(16px);">
+  <nav class="fixed top-0 left-0 w-full z-20 bg-gray-950 bg-opacity-60 backdrop-blur-lg border-b border-indigo-800 shadow-xl" style="backdrop-filter: blur(16px);">
     <div class="max-w-7xl mx-auto flex justify-between items-center px-8 py-6">
-      <span class="text-2xl font-bold text-indigo-400">OpenBotHost</span>
+      <span class="flex items-center">
+        <img src="src/icon-nobg.png" alt="OpenBotHost logo" class="header-logo">
+        <span class="text-2xl font-bold text-indigo-400">OpenBotHost</span>
+      </span>
       <div class="space-x-6 hidden md:block">
         <a href="#features" class="hover:text-indigo-200 font-medium">Features</a>
         <a href="#how" class="hover:text-indigo-200 font-medium">How It Works</a>
@@ -70,14 +46,14 @@
   </nav>
   <div class="feature-ribbon-container">
     <div id="ribbonTrack" class="feature-ribbon-track">
-      <span><img src="src/icon-nobg.png" alt="icon"> Real-Time Performance Insights</span>
-      <span><img src="src/icon-nobg.png" alt="icon"> Flexible Customization</span>
-      <span><img src="src/icon-nobg.png" alt="icon"> Lightning-Fast Servers</span>
-      <span><img src="src/icon-nobg.png" alt="icon"> Reliable Connectivity</span>
-      <span><img src="src/icon-nobg.png" alt="icon"> Friendly Support</span>
-      <span><img src="src/icon-nobg.png" alt="icon"> Robust DDoS Protection</span>
-      <span><img src="src/icon-nobg.png" alt="icon"> Easy Setup</span>
-      <span><img src="src/icon-nobg.png" alt="icon"> Effortless Scalability</span>
+      <span><i class="fa-solid fa-magnifying-glass-chart"></i> Real-Time Performance Insights</span>
+      <span><i class="fa-solid fa-bolt"></i> Flexible Customization</span>
+      <span><i class="fa-solid fa-server"></i> Lightning-Fast Servers</span>
+      <span><i class="fa-solid fa-wifi"></i> Reliable Connectivity</span>
+      <span><i class="fa-solid fa-headset"></i> Friendly Support</span>
+      <span><i class="fa-solid fa-shield-halved"></i> Robust DDoS Protection</span>
+      <span><i class="fa-solid fa-gears"></i> Easy Setup</span>
+      <span><i class="fa-solid fa-expand"></i> Effortless Scalability</span>
     </div>
   </div>
   <section class="py-28 text-center relative">
@@ -159,7 +135,7 @@
     }
     shineStars();
 
-    // Feature ribbon JS (infinite scroll for custom icon bar)
+    // Feature ribbon JS (infinite scroll)
     const ribbonTrack = document.getElementById('ribbonTrack');
     const ribbonClone = ribbonTrack.cloneNode(true);
     ribbonTrack.parentNode.appendChild(ribbonClone);
