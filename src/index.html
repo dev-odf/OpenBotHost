@@ -5,8 +5,12 @@
   <title>OpenBotHost – Free Discord Bot Hosting</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" href="/favicon.ico">
   <style>
+    body.bg-gray-900 {
+      background: linear-gradient(135deg, #1a164d 60%, #48146b 100%) !important;
+    }
     .star { color: #ffd700; transition: filter 0.6s; }
     .star.shine { filter: drop-shadow(0 0 6px #fff700) brightness(1.2); }
     .bg-panels {
@@ -16,12 +20,18 @@
     }
     .panel {
       flex: 1; height: 100vh;
-      background: linear-gradient(135deg, #1e293b80 70%, #6366f1 100%);
-      opacity: 0.6; transform: translateY(0);
+      background: linear-gradient(135deg, #1b2454c4 70%, #6d36c9 100%);
+      opacity: 0.45; transform: translateY(0);
       transition: transform 0.5s cubic-bezier(.61,-0.21,.29,1.18);
       border-radius: 32px; margin: 0 6px;
     }
+    nav, footer { background: #21194e !important; }
     @media(max-width: 900px) { .bg-panels { display: none; } }
+    @keyframes slidein {
+      from { opacity: 0; transform: translateX(-30vw);}
+      to { opacity: 1; transform: translateX(0);}
+    }
+    .animate-slidein { animation: slidein 1.2s cubic-bezier(.61,-0.21,.29,1.18) both; }
   </style>
 </head>
 <body class="bg-gray-900 text-white">
@@ -42,6 +52,18 @@
       </div>
     </div>
   </nav>
+  <div id="feature-bar" class="w-full flex justify-center bg-gradient-to-r from-indigo-900 via-purple-900 to-indigo-800 py-4 px-2 animate-slidein" style="position:relative; z-index:19;">
+    <div class="flex gap-8 text-white text-lg font-semibold overflow-x-auto whitespace-nowrap">
+      <span class="flex items-center gap-2"><i class="fa-solid fa-headset"></i> Friendly Support</span>
+      <span class="flex items-center gap-2"><i class="fa-solid fa-shield-halved"></i> Robust DDoS Protection</span>
+      <span class="flex items-center gap-2"><i class="fa-solid fa-gears"></i> Easy Setup</span>
+      <span class="flex items-center gap-2"><i class="fa-solid fa-expand"></i> Effortless Scalability</span>
+      <span class="flex items-center gap-2"><i class="fa-solid fa-gamepad"></i> Game-Focused Tools</span>
+      <span class="flex items-center gap-2"><i class="fa-solid fa-magnifying-glass-chart"></i> Real-Time Performance Insights</span>
+      <span class="flex items-center gap-2"><i class="fa-solid fa-bolt"></i> Flexible Customization</span>
+      <span class="flex items-center gap-2"><i class="fa-solid fa-server"></i> Lightning-Fast Servers</span>
+    </div>
+  </div>
   <section class="py-28 text-center relative">
     <h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-400 bg-clip-text text-transparent">OpenBotHost</h1>
     <div class="mb-4 flex justify-center items-center">
@@ -57,10 +79,10 @@
     <p class="text-lg mb-8">Free Discord Bot Hosting 24/7 – Instantly power up your projects!</p>
     <a href="https://control.openbothost.com" class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 px-8 py-4 rounded font-bold text-white hover:bg-gradient-to-l transition shadow-lg animate-bounce text-xl">Launch Panel 🚀</a>
   </section>
-  <section id="features" class="py-12 bg-gray-800">
+  <section id="features" class="py-12" style="background: linear-gradient(90deg, #271858 80%, #43316f 100%);">
     <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
       <div>
-        <h2 class="text-2xl font-bold mb-4">Why Choose Us?</h2>
+        <h2 class="text-2xl font-bold mb-4 text-indigo-300">Why Choose Us?</h2>
         <ul class="space-y-3 text-lg">
           <li>🔒 Advanced DDoS Protection</li>
           <li>⚡ Fast, Reliable Bot Performance</li>
@@ -70,7 +92,7 @@
         </ul>
       </div>
       <div>
-        <h2 class="text-2xl font-bold mb-4">Features</h2>
+        <h2 class="text-2xl font-bold mb-4 text-indigo-300">Features</h2>
         <ul class="space-y-3 text-lg">
           <li>👨‍💻 Real-Time Console & Logs</li>
           <li>💾 File Manager</li>
@@ -83,22 +105,22 @@
   </section>
   <section class="py-12">
     <div class="max-w-4xl mx-auto flex flex-wrap justify-around text-center gap-8">
-      <div class="transform hover:scale-105 transition bg-gray-800 px-8 py-6 rounded-xl shadow">
-        <div class="text-3xl font-extrabold">341+</div>
+      <div class="transform hover:scale-105 transition bg-gradient-to-br from-indigo-800 to-purple-800 px-8 py-6 rounded-xl shadow">
+        <div class="text-3xl font-extrabold text-pink-300">341+</div>
         <div class="text-lg">Servers Hosted</div>
       </div>
-      <div class="transform hover:scale-105 transition bg-gray-800 px-8 py-6 rounded-xl shadow">
-        <div class="text-3xl font-extrabold">207+</div>
+      <div class="transform hover:scale-105 transition bg-gradient-to-br from-indigo-800 to-purple-800 px-8 py-6 rounded-xl shadow">
+        <div class="text-3xl font-extrabold text-pink-300">207+</div>
         <div class="text-lg">Bots Online</div>
       </div>
-      <div class="transform hover:scale-105 transition bg-gray-800 px-8 py-6 rounded-xl shadow">
-        <div class="text-3xl font-extrabold">932+</div>
+      <div class="transform hover:scale-105 transition bg-gradient-to-br from-indigo-800 to-purple-800 px-8 py-6 rounded-xl shadow">
+        <div class="text-3xl font-extrabold text-pink-300">932+</div>
         <div class="text-lg">Total Users</div>
       </div>
     </div>
   </section>
-  <section id="how" class="py-12 bg-gray-800">
-    <h2 class="text-2xl font-bold text-center mb-6">How to Get Started</h2>
+  <section id="how" class="py-12" style="background: linear-gradient(90deg,#271858 80%, #43316f 100%)">
+    <h2 class="text-2xl font-bold text-center mb-6 text-indigo-300">How to Get Started</h2>
     <ol class="max-w-2xl mx-auto space-y-4 text-left text-lg">
       <li>1. Sign up for free – No credit card required.</li>
       <li>2. Create a bot server and choose your stack (Node.js, Python, etc.).</li>
@@ -107,7 +129,7 @@
       <li>5. Launch your bot in one click – Monitor with our control panel.</li>
     </ol>
   </section>
-  <footer class="py-6 bg-gray-900 text-center text-sm">
+  <footer class="py-6 text-center text-sm" style="background: #21194e">
     <p>© 2025 OpenBotHost | Owner: Sharath | <a href="/discord" class="text-indigo-400">Discord</a> | <a href="/privacy" class="text-indigo-400">Privacy</a></p>
   </footer>
   <script>
