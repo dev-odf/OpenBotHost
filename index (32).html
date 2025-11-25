@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OpenBotHost – Free Discord Bot Hosting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="icon" href="src/icon-nobg.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body.bg-gray-900 {
+      background: linear-gradient(135deg, #1a164d 60%, #48146b 100%) !important;
+    }
+    .star { color: #ffd700; transition: filter 0.6s; }
+    .star.shine { filter: drop-shadow(0 0 6px #fff700) brightness(1.2); }
+    .bg-panels { position: fixed; inset: 0; z-index: -1; display: flex; width: 100vw; height: 100vh; overflow: hidden; pointer-events: none; }
+    .panel { flex: 1; height: 100vh; background: linear-gradient(135deg, #1b2454c4 70%, #6d36c9 100%); opacity: 0.45; transform: translateY(0); transition: transform 0.5s cubic-bezier(.61,-0.21,.29,1.18); border-radius: 32px; margin: 0 6px; }
+    nav, footer { background: #21194e !important; }
+    @media(max-width: 900px) { .bg-panels { display: none; } }
+    .feature-ribbon-container { width: 100vw; overflow: hidden; background: linear-gradient(90deg, #271858 80%, #3a2373 100%); position: relative; z-index: 19; height: 54px; border-bottom: 1px solid #392f67; display: flex; align-items: center; }
+    .feature-ribbon-track { display: flex; align-items: center; gap: 34px; font-size: 1.13rem; color: #fafaff; font-weight: 500; white-space: nowrap; will-change: transform; }
+    .feature-ribbon-track span { display: flex; align-items: center; gap: 7px; }
+    .feature-ribbon-track i { font-size: 1.4em; vertical-align: middle; }
+    .header-logo { height: 2.1em; width: 2.1em; margin-right:12px; vertical-align:middle; border-radius:14px; box-shadow: 0 0 8px #805ad5;}
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
+  <div class="bg-panels">
+    <div class="panel"></div>
+    <div class="panel"></div>
+    <div class="panel"></div>
+    <div class="panel"></div>
+  </div>
+  <nav class="fixed top-0 left-0 w-full z-20 bg-gray-950 bg-opacity-60 backdrop-blur-lg border-b border-indigo-800 shadow-xl" style="backdrop-filter: blur(16px);">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-8 py-6">
+      <span class="flex items-center">
+        <img src="src/icon-nobg.png" alt="OpenBotHost logo" class="header-logo">
+        <span class="text-2xl font-bold text-indigo-400">OpenBotHost</span>
+      </span>
+      <div class="space-x-6 hidden md:block">
+        <a href="#features" class="hover:text-indigo-200 font-medium">Features</a>
+        <a href="#how" class="hover:text-indigo-200 font-medium">How It Works</a>
+        <a href="https://control.openbothost.com" class="bg-indigo-600 px-4 py-2 rounded font-bold text-white hover:bg-green-500 transition shadow">Launch Panel</a>
+      </div>
+    </div>
+  </nav>
+  <div class="feature-ribbon-container">
+    <div id="ribbonTrack" class="feature-ribbon-track">
+      <span><i class="fa-solid fa-magnifying-glass-chart"></i> Real-Time Performance Insights</span>
+      <span><i class="fa-solid fa-bolt"></i> Flexible Customization</span>
+      <span><i class="fa-solid fa-server"></i> Lightning-Fast Servers</span>
+      <span><i class="fa-solid fa-wifi"></i> Reliable Connectivity</span>
+      <span><i class="fa-solid fa-headset"></i> Friendly Support</span>
+      <span><i class="fa-solid fa-shield-halved"></i> Robust DDoS Protection</span>
+      <span><i class="fa-solid fa-gears"></i> Easy Setup</span>
+      <span><i class="fa-solid fa-expand"></i> Effortless Scalability</span>
+    </div>
+  </div>
+  <section class="py-28 text-center relative">
+    <h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-400 bg-clip-text text-transparent">OpenBotHost</h1>
+    <div class="mb-4 flex justify-center items-center">
+      <div id="star-rating" class="flex space-x-1 text-2xl">
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9734;</span>
+      </div>
+      <span class="ml-3 text-xl font-bold text-yellow-300">4.8/5</span>
+    </div>
+    <p class="text-lg mb-8">Free Discord Bot Hosting 24/7 – Instantly power up your projects!</p>
+    <a href="https://control.openbothost.com" class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 px-8 py-4 rounded font-bold text-white hover:bg-gradient-to-l transition shadow-lg animate-bounce text-xl">Launch Panel 🚀</a>
+  </section>
+  <section id="features" class="py-12" style="background: linear-gradient(90deg, #271858 80%, #43316f 100%);">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <h2 class="text-2xl font-bold mb-4 text-indigo-300">Why Choose Us?</h2>
+        <ul class="space-y-3 text-lg">
+          <li>🔒 Advanced DDoS Protection</li>
+          <li>⚡ Fast, Reliable Bot Performance</li>
+          <li>🌐 Community & Tutorials</li>
+          <li>🎯 Unlimited Bot Slots</li>
+          <li>🕒 24/7 Uptime</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-2xl font-bold mb-4 text-indigo-300">Features</h2>
+        <ul class="space-y-3 text-lg">
+          <li>👨‍💻 Real-Time Console & Logs</li>
+          <li>💾 File Manager</li>
+          <li>🔌 Module Installer</li>
+          <li>📊 Stats Monitoring</li>
+          <li>⚙️ Easy Setup Panel</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="py-12">
+    <div class="max-w-4xl mx-auto flex flex-wrap justify-around text-center gap-8">
+      <div class="transform hover:scale-105 transition bg-gradient-to-br from-indigo-800 to-purple-800 px-8 py-6 rounded-xl shadow">
+        <div class="text-3xl font-extrabold text-pink-300">341+</div>
+        <div class="text-lg">Servers Hosted</div>
+      </div>
+      <div class="transform hover:scale-105 transition bg-gradient-to-br from-indigo-800 to-purple-800 px-8 py-6 rounded-xl shadow">
+        <div class="text-3xl font-extrabold text-pink-300">207+</div>
+        <div class="text-lg">Bots Online</div>
+      </div>
+      <div class="transform hover:scale-105 transition bg-gradient-to-br from-indigo-800 to-purple-800 px-8 py-6 rounded-xl shadow">
+        <div class="text-3xl font-extrabold text-pink-300">932+</div>
+        <div class="text-lg">Total Users</div>
+      </div>
+    </div>
+  </section>
+  <section id="how" class="py-12" style="background: linear-gradient(90deg,#271858 80%, #43316f 100%)">
+    <h2 class="text-2xl font-bold text-center mb-6 text-indigo-300">How to Get Started</h2>
+    <ol class="max-w-2xl mx-auto space-y-4 text-left text-lg">
+      <li>1. Sign up for free – No credit card required.</li>
+      <li>2. Create a bot server and choose your stack (Node.js, Python, etc.).</li>
+      <li>3. Upload your bot files or paste your code.</li>
+      <li>4. Configure settings, set environment variables.</li>
+      <li>5. Launch your bot in one click – Monitor with our control panel.</li>
+    </ol>
+  </section>
+  <footer class="py-6 text-center text-sm" style="background: #21194e">
+    <p>© 2025 OpenBotHost | Owner: Sharath | <a href="/discord" class="text-indigo-400">Discord</a> | <a href="/privacy" class="text-indigo-400">Privacy</a></p>
+  </footer>
+  <script>
+    function shineStars() {
+      const stars = document.querySelectorAll('.star');
+      let shineIdx = 0;
+      setInterval(() => {
+        stars.forEach((star, idx) => star.classList.toggle('shine', idx <= shineIdx));
+        shineIdx = (shineIdx + 1) % 5;
+      }, 600);
+    }
+    shineStars();
+
+    // Feature ribbon JS (infinite scroll)
+    const ribbonTrack = document.getElementById('ribbonTrack');
+    const ribbonClone = ribbonTrack.cloneNode(true);
+    ribbonTrack.parentNode.appendChild(ribbonClone);
+    ribbonClone.style.position = 'absolute';
+    ribbonClone.style.left = ribbonTrack.offsetWidth + 'px';
+    ribbonClone.style.top = '0';
+
+    let ribbonOffset = 0, speed = 1.1;
+    function animateRibbon() {
+      ribbonOffset -= speed;
+      if (ribbonOffset <= -ribbonTrack.offsetWidth) {
+        ribbonOffset = 0;
+      }
+      ribbonTrack.style.transform = `translateX(${ribbonOffset}px)`;
+      ribbonClone.style.transform = `translateX(${ribbonOffset + ribbonTrack.offsetWidth}px)`;
+      requestAnimationFrame(animateRibbon);
+    }
+    animateRibbon();
+
+    window.addEventListener('scroll', () => {
+      const panels = document.querySelectorAll('.panel');
+      let scrollPercent = window.scrollY / document.body.scrollHeight;
+      panels.forEach((panel, i) => {
+        panel.style.transform = `translateY(${scrollPercent * (40 + 25*i)}px)`;
+      });
+    });
+  </script>
+</body>
+</html>
