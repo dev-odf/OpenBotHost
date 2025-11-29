@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <title>Free Discord Bot Hosting 24/7 | OpenBotHost</title>
@@ -28,8 +28,6 @@
       --text: #f9fafb;
       --muted: #9ca3af;
       --border-subtle: rgba(148, 163, 184, 0.2);
-      --error: #f97373;
-      --success: #4ade80;
       --radius-lg: 18px;
       --radius-md: 12px;
       --radius-pill: 999px;
@@ -37,6 +35,17 @@
       --shadow-glow: 0 0 35px rgba(129, 140, 248, 0.35);
       --transition-fast: 180ms ease-out;
       --transition-med: 220ms ease-out;
+    }
+
+    /* Light theme overrides */
+    [data-theme="light"] {
+      --bg: #f1f5f9;
+      --bg-alt: #e5e7eb;
+      --text: #020617;
+      --muted: #6b7280;
+      --border-subtle: rgba(148, 163, 184, 0.45);
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.18);
+      --shadow-glow: 0 0 30px rgba(79, 70, 229, 0.23);
     }
 
     * {
@@ -49,9 +58,13 @@
       min-height: 100vh;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
         "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1d2238 0, #050816 40%);
+      background: radial-gradient(circle at top, #1d2238 0, var(--bg) 40%);
       color: var(--text);
       -webkit-font-smoothing: antialiased;
+    }
+
+    [data-theme="light"] body {
+      background: radial-gradient(circle at top, #e5e7eb 0, #f9fafb 45%);
     }
 
     a {
@@ -76,6 +89,11 @@
       padding: 22px 22px 20px;
       position: relative;
       overflow: hidden;
+    }
+
+    [data-theme="light"] .glass {
+      background: radial-gradient(circle at top left, #ffffff 0, #e5e7eb 55%);
+      border-color: rgba(148, 163, 184, 0.5);
     }
 
     .glass::before {
@@ -105,7 +123,7 @@
       }
     }
 
-    /* Header / hero */
+    /* Header / top bar */
 
     .header {
       display: flex;
@@ -153,6 +171,11 @@
       color: var(--muted);
     }
 
+    [data-theme="light"] .brand-badge {
+      background: #ffffff;
+      color: #6b7280;
+    }
+
     .brand-text h1 {
       font-size: 18px;
       font-weight: 600;
@@ -182,6 +205,8 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .pill {
@@ -197,9 +222,18 @@
       white-space: nowrap;
     }
 
+    [data-theme="light"] .pill {
+      background: rgba(248, 250, 252, 0.95);
+      color: #6b7280;
+    }
+
     .pill strong {
       color: #e5e7eb;
       font-weight: 500;
+    }
+
+    [data-theme="light"] .pill strong {
+      color: #111827;
     }
 
     .pill-dot {
@@ -245,10 +279,19 @@
       background: rgba(15, 23, 42, 0.7);
     }
 
+    [data-theme="light"] .btn-ghost {
+      background: #ffffff;
+    }
+
     .btn-ghost:hover {
       background: rgba(15, 23, 42, 0.95);
       border-color: rgba(148, 163, 184, 0.8);
       color: #e5e7eb;
+    }
+
+    [data-theme="light"] .btn-ghost:hover {
+      background: #f3f4f6;
+      color: #111827;
     }
 
     .btn-icon {
@@ -259,12 +302,56 @@
       justify-content: center;
       background: rgba(15, 23, 42, 0.8);
       border-color: rgba(148, 163, 184, 0.5);
+      color: #e5e7eb;
+    }
+
+    [data-theme="light"] .btn-icon {
+      background: #ffffff;
+      color: #111827;
     }
 
     .btn-icon:hover {
       background: rgba(15, 23, 42, 1);
       border-color: rgba(148, 163, 184, 0.9);
       transform: translateY(-1px);
+    }
+
+    [data-theme="light"] .btn-icon:hover {
+      background: #e5e7eb;
+    }
+
+    .theme-toggle {
+      font-size: 11px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    [data-theme="light"] .theme-toggle {
+      background: #ffffff;
+      color: #111827;
+    }
+
+    .lang-select {
+      font-size: 11px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      outline: none;
+      cursor: pointer;
+    }
+
+    [data-theme="light"] .lang-select {
+      background: #ffffff;
+      color: #111827;
     }
 
     /* Left column: hero + features */
@@ -286,6 +373,13 @@
       overflow: hidden;
     }
 
+    [data-theme="light"] .hero-block {
+      background:
+        linear-gradient(135deg, #f9fafb, #f3f4f6),
+        radial-gradient(circle at top, rgba(129, 140, 248, 0.12) 0, transparent 55%);
+      border-color: rgba(148, 163, 184, 0.5);
+    }
+
     .hero-tag {
       display: inline-flex;
       align-items: center;
@@ -297,11 +391,20 @@
       color: var(--muted);
       font-size: 11px;
       margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    [data-theme="light"] .hero-tag {
+      background: #ffffff;
     }
 
     .hero-tag span {
       color: #e5e7eb;
       font-weight: 500;
+    }
+
+    [data-theme="light"] .hero-tag span {
+      color: #111827;
     }
 
     .hero-title {
@@ -338,6 +441,7 @@
       gap: 8px;
       font-size: 11px;
       color: var(--muted);
+      flex-wrap: wrap;
     }
 
     .hero-pill-meta span {
@@ -345,6 +449,11 @@
       border-radius: 999px;
       border: 1px solid rgba(148, 163, 184, 0.45);
       background: rgba(15, 23, 42, 0.9);
+    }
+
+    [data-theme="light"] .hero-pill-meta span {
+      background: #ffffff;
+      color: #111827;
     }
 
     .hero-stats {
@@ -360,6 +469,11 @@
       background: rgba(15, 23, 42, 0.95);
       border: 1px solid rgba(148, 163, 184, 0.5);
       min-width: 130px;
+    }
+
+    [data-theme="light"] .stat-card {
+      background: #ffffff;
+      border-color: rgba(148, 163, 184, 0.7);
     }
 
     .stat-number {
@@ -390,6 +504,11 @@
       border: 1px solid rgba(148, 163, 184, 0.38);
     }
 
+    [data-theme="light"] .features {
+      background: #f9fafb;
+      border-color: rgba(148, 163, 184, 0.6);
+    }
+
     .section-title {
       font-size: 13px;
       font-weight: 600;
@@ -418,6 +537,11 @@
       border: 1px solid rgba(148, 163, 184, 0.35);
     }
 
+    [data-theme="light"] .feature-card {
+      background: #ffffff;
+      border-color: rgba(148, 163, 184, 0.6);
+    }
+
     .feature-card h3 {
       font-size: 13px;
       margin-bottom: 3px;
@@ -430,7 +554,7 @@
       line-height: 1.45;
     }
 
-    /* Right column: plans + FAQ */
+    /* Right column: plans + FAQ + metrics */
 
     .right {
       display: flex;
@@ -443,6 +567,11 @@
       border-radius: 20px;
       background: rgba(15, 23, 42, 0.96);
       border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    [data-theme="light"] .plans {
+      background: #f9fafb;
+      border-color: rgba(148, 163, 184, 0.6);
     }
 
     .plans-header {
@@ -472,6 +601,11 @@
       background: rgba(15, 23, 42, 0.9);
     }
 
+    [data-theme="light"] .plans-toggle {
+      background: #ffffff;
+      color: #6b7280;
+    }
+
     .plans-toggle span {
       padding: 2px 6px;
       border-radius: 999px;
@@ -480,6 +614,10 @@
     .plans-toggle span.active {
       background: rgba(129, 140, 248, 0.18);
       color: #e5e7eb;
+    }
+
+    [data-theme="light"] .plans-toggle span.active {
+      color: #111827;
     }
 
     .plans-table {
@@ -496,6 +634,11 @@
       border-bottom: 1px solid rgba(30, 41, 59, 0.9);
     }
 
+    [data-theme="light"] .plans-table th,
+    [data-theme="light"] .plans-table td {
+      border-bottom: 1px solid rgba(209, 213, 219, 0.9);
+    }
+
     .plans-table th {
       font-weight: 600;
       color: var(--muted);
@@ -504,6 +647,10 @@
     .plans-table td:nth-child(2) {
       color: #e5e7eb;
       font-weight: 500;
+    }
+
+    [data-theme="light"] .plans-table td:nth-child(2) {
+      color: #111827;
     }
 
     .plans-table td:nth-child(3) {
@@ -517,11 +664,87 @@
       margin-top: 6px;
     }
 
+    .metrics {
+      padding: 10px 12px;
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 11px;
+    }
+
+    [data-theme="light"] .metrics {
+      background: #f9fafb;
+      border-color: rgba(148, 163, 184, 0.6);
+    }
+
+    .metrics-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .meter {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .meter-label {
+      min-width: 68px;
+      color: var(--muted);
+    }
+
+    .meter-bar {
+      flex: 1;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      overflow: hidden;
+    }
+
+    [data-theme="light"] .meter-bar {
+      background: #e5e7eb;
+    }
+
+    .meter-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #4ade80, #22c55e);
+      width: 50%;
+      transition: width 0.5s ease-out;
+    }
+
+    .meter-fill.cpu {
+      background: linear-gradient(90deg, #f97316, #fb923c);
+    }
+
+    .meter-fill.ram {
+      background: linear-gradient(90deg, #6366f1, #22d3ee);
+    }
+
+    .meter-value {
+      font-variant-numeric: tabular-nums;
+      min-width: 40px;
+      text-align: right;
+    }
+
+    .metrics-footnote {
+      margin-top: 4px;
+      font-size: 10px;
+      color: var(--muted);
+    }
+
     .faq {
       padding: 14px 14px 10px;
       border-radius: 20px;
       background: rgba(15, 23, 42, 0.96);
       border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    [data-theme="light"] .faq {
+      background: #f9fafb;
+      border-color: rgba(148, 163, 184, 0.6);
     }
 
     .faq-list {
@@ -539,6 +762,11 @@
       font-size: 11px;
     }
 
+    [data-theme="light"] details {
+      background: #ffffff;
+      border-color: rgba(148, 163, 184, 0.6);
+    }
+
     summary {
       cursor: pointer;
       list-style: none;
@@ -549,6 +777,10 @@
       color: #e5e7eb;
     }
 
+    [data-theme="light"] summary {
+      color: #111827;
+    }
+
     summary::-webkit-details-marker {
       display: none;
     }
@@ -556,6 +788,11 @@
     details[open] {
       background: rgba(15, 23, 42, 0.98);
       border-color: rgba(129, 140, 248, 0.7);
+    }
+
+    [data-theme="light"] details[open] {
+      background: #eef2ff;
+      border-color: rgba(129, 140, 248, 0.9);
     }
 
     details p {
@@ -577,6 +814,10 @@
       align-items: center;
       justify-content: space-between;
       gap: 10px;
+    }
+
+    [data-theme="light"] .cta {
+      background: radial-gradient(circle at top, rgba(129, 140, 248, 0.15) 0, #eef2ff 50%, #e5e7eb 100%);
     }
 
     .cta-text {
@@ -619,6 +860,10 @@
       border-top: 1px solid rgba(15, 23, 42, 0.9);
     }
 
+    [data-theme="light"] .footer {
+      border-top-color: rgba(209, 213, 219, 0.9);
+    }
+
     .footer-links {
       display: flex;
       flex-wrap: wrap;
@@ -631,6 +876,37 @@
 
     .footer-links a:hover {
       color: #e5e7eb;
+    }
+
+    [data-theme="light"] .footer-links a:hover {
+      color: #111827;
+    }
+
+    .copy-toast {
+      position: fixed;
+      bottom: 18px;
+      right: 18px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      color: #e5e7eb;
+      font-size: 11px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      opacity: 0;
+      transform: translateY(8px);
+      pointer-events: none;
+      transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+      z-index: 50;
+    }
+
+    [data-theme="light"] .copy-toast {
+      background: #111827;
+      color: #f9fafb;
+    }
+
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
@@ -646,15 +922,28 @@
                 <div class="brand-badge">OB</div>
               </div>
               <div class="brand-text">
-                <h1>OpenBotHost <span>Free Tier</span></h1>
-                <p>Free Discord bot hosting with an upgrade path when you need it.</p>
+                <h1 id="t-brand-title">OpenBotHost <span id="t-free-tier">Free Tier</span></h1>
+                <p id="t-brand-subtitle">Free Discord bot hosting with an upgrade path when you need it.</p>
               </div>
             </div>
             <div class="header-actions">
               <div class="pill">
                 <div class="pill-dot"></div>
-                <span>Current status: <strong>All systems online</strong></span>
+                <span id="t-status-label">Current status: <strong>All systems online</strong></span>
               </div>
+
+              <!-- Theme toggle -->
+              <button class="theme-toggle" id="themeToggle" type="button">
+                <span id="themeToggleIcon">🌙</span>
+                <span id="themeToggleText">Dark</span>
+              </button>
+
+              <!-- Language select -->
+              <select id="langSelect" class="lang-select" aria-label="Language">
+                <option value="en">EN</option>
+                <option value="hi">HI</option>
+              </select>
+
               <a href="https://status.your-domain" class="btn btn-icon" aria-label="Status">
                 ⓘ
               </a>
@@ -665,76 +954,76 @@
             <div class="hero-glow"></div>
             <div class="hero-content">
               <div class="hero-tag">
-                <span>Free Discord Bot Hosting 24/7</span>
-                <span>Instant setup · No VPS needed</span>
+                <span id="t-hero-tag-main">Free Discord Bot Hosting 24/7</span>
+                <span id="t-hero-tag-sub">Instant setup · No VPS needed</span>
               </div>
 
-              <h2 class="hero-title">
+              <h2 class="hero-title" id="t-hero-title">
                 Instantly power up your <strong>Discord bots</strong> with always-on hosting.
               </h2>
-              <p class="hero-subtitle">
+              <p class="hero-subtitle" id="t-hero-subtitle">
                 Deploy your bot in under a minute with 24/7 uptime, automatic restarts,
                 live logs, and DDoS‑protected infrastructure. Built for Discord.js,
                 Python, and more.
               </p>
 
               <div class="hero-actions-row">
-                <a href="https://panel.your-domain" class="btn btn-primary">
+                <a href="https://panel.your-domain" class="btn btn-primary" id="t-launch-panel">
                   Launch Panel 🚀
                 </a>
-                <a href="#plans" class="btn btn-ghost">
+                <a href="#plans" class="btn btn-ghost" id="t-view-limits">
                   View limits & upgrades
                 </a>
               </div>
 
               <div class="hero-pill-meta">
-                <span>Perfect for community, utility, and music bots</span>
-                <span>No credit card required</span>
+                <span id="t-meta-1">Perfect for community, utility, and music bots</span>
+                <span id="t-meta-2">No credit card required</span>
               </div>
 
               <div class="hero-stats">
                 <div class="stat-card">
                   <div class="stat-number">99.9%</div>
-                  <div class="stat-label">Network uptime</div>
+                  <div class="stat-label" id="t-stat-uptime">Network uptime</div>
                 </div>
                 <div class="stat-card">
                   <div class="stat-number">2,500+</div>
-                  <div class="stat-label">Bots hosted</div>
+                  <div class="stat-label" id="t-stat-bots">Bots hosted</div>
                 </div>
                 <div class="stat-card">
                   <div class="stat-number">15+</div>
-                  <div class="stat-label">Global locations</div>
+                  <div class="stat-label" id="t-stat-locations">Global locations</div>
                 </div>
               </div>
             </div>
           </section>
 
           <section class="features" id="features">
-            <div class="section-title">Why OpenBotHost?</div>
+            <div class="section-title" id="t-why">Why OpenBotHost?</div>
             <div class="feature-grid">
               <article class="feature-card">
-                <h3>Free 24/7 hosting</h3>
-                <p>Keep your bot online around the clock with automatic restarts and resource monitoring. Great for communities of all sizes.</p>
+                <h3 id="t-feat-1-title">Free 24/7 hosting</h3>
+                <p id="t-feat-1-body">Keep your bot online around the clock with automatic restarts and resource monitoring. Great for communities of all sizes.</p>
               </article>
               <article class="feature-card">
-                <h3>Developer‑friendly panel</h3>
-                <p>Upload via Git or ZIP, manage environment variables, and view real‑time console logs in one clean dashboard.</p>
+                <h3 id="t-feat-2-title">Developer‑friendly panel</h3>
+                <p id="t-feat-2-body">Upload via Git or ZIP, manage environment variables, and view real‑time console logs in one clean dashboard.</p>
               </article>
               <article class="feature-card">
-                <h3>DDoS‑protected infra</h3>
-                <p>Your bots run behind enterprise‑grade DDoS protection and isolated containers, helping keep your projects safe.</p>
+                <h3 id="t-feat-3-title">DDoS‑protected infra</h3>
+                <p id="t-feat-3-body">Your bots run behind enterprise‑grade DDoS protection and isolated containers, helping keep your projects safe.</p>
               </article>
               <article class="feature-card">
-                <h3>Secure & isolated</h3>
-                <p>Each bot runs in its own sandbox with fair‑use limits on CPU, RAM, and storage to prevent abuse and instability.</p>
+                <h3 id="t-feat-4-title">Secure & isolated</h3>
+                <p id="t-feat-4-body">Each bot runs in its own sandbox with fair‑use limits on CPU, RAM, and storage to prevent abuse and instability.</p>
               </article>
               <article class="feature-card">
-                <h3>Automatic backups</h3>
-                <p>Scheduled backups for important data folders so you can quickly roll back from crashes, bugs, or mistakes.</p>
+                <h3 id="t-feat-5-title">Automatic backups</h3>
+                <p id="t-feat-5-body">Scheduled backups for important data folders so you can quickly roll back from crashes, bugs, or mistakes.</p>
               </article>
               <article class="feature-card">
-                <h3>Guides & community</h3>
-                <p>Get help from our friendly Discord community, plus step‑by‑step guides for Discord.js, Pycord, and more.</p>
+                <h3 id="t-feat-6-title">Guides & community</h3>
+                <p id="t-feat-6-body">Get help from our friendly Discord community, plus step‑by‑step guides for Discord.js, Pycord, and more.</p>
               </article>
             </div>
           </section>
@@ -744,72 +1033,103 @@
         <div class="right">
           <section class="plans" id="plans">
             <div class="plans-header">
-              <h2>Free plan vs premium</h2>
+              <h2 id="t-plans-title">Free plan vs premium</h2>
               <div class="plans-toggle">
-                <span class="active">Free</span>
-                <span>Premium</span>
+                <span class="active" id="t-plans-toggle-free">Free</span>
+                <span id="t-plans-toggle-premium">Premium</span>
               </div>
             </div>
             <table class="plans-table">
               <thead>
                 <tr>
-                  <th>Feature</th>
-                  <th>Free Plan</th>
-                  <th>Premium</th>
+                  <th id="t-plans-col-feature">Feature</th>
+                  <th id="t-plans-col-free">Free Plan</th>
+                  <th id="t-plans-col-premium">Premium</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Monthly price</td>
-                  <td>₹0</td>
-                  <td>From ₹199 / month</td>
+                  <td id="t-row-price-label">Monthly price</td>
+                  <td id="t-row-price-free">₹0</td>
+                  <td id="t-row-price-premium">From ₹199 / month</td>
                 </tr>
                 <tr>
-                  <td>RAM per bot</td>
-                  <td>512 MB</td>
-                  <td>Up to 4 GB</td>
+                  <td id="t-row-ram-label">RAM per bot</td>
+                  <td id="t-row-ram-free">512 MB</td>
+                  <td id="t-row-ram-premium">Up to 4 GB</td>
                 </tr>
                 <tr>
-                  <td>CPU priority</td>
-                  <td>Shared</td>
-                  <td>High priority</td>
+                  <td id="t-row-cpu-label">CPU priority</td>
+                  <td id="t-row-cpu-free">Shared</td>
+                  <td id="t-row-cpu-premium">High priority</td>
                 </tr>
                 <tr>
-                  <td>Storage</td>
-                  <td>1 GB SSD</td>
-                  <td>Up to 10 GB SSD</td>
+                  <td id="t-row-disk-label">Storage</td>
+                  <td id="t-row-disk-free">1 GB SSD</td>
+                  <td id="t-row-disk-premium">Up to 10 GB SSD</td>
                 </tr>
                 <tr>
-                  <td>Backups</td>
-                  <td>Weekly</td>
-                  <td>Daily + on‑demand</td>
+                  <td id="t-row-backup-label">Backups</td>
+                  <td id="t-row-backup-free">Weekly</td>
+                  <td id="t-row-backup-premium">Daily + on‑demand</td>
                 </tr>
                 <tr>
-                  <td>Support</td>
-                  <td>Community Discord</td>
-                  <td>Priority tickets + Discord</td>
+                  <td id="t-row-support-label">Support</td>
+                  <td id="t-row-support-free">Community Discord</td>
+                  <td id="t-row-support-premium">Priority tickets + Discord</td>
                 </tr>
                 <tr>
-                  <td>Max bots per user</td>
-                  <td>1–2 bots</td>
-                  <td>Higher limits available</td>
+                  <td id="t-row-bots-label">Max bots per user</td>
+                  <td id="t-row-bots-free">1–2 bots</td>
+                  <td id="t-row-bots-premium">Higher limits available</td>
                 </tr>
               </tbody>
             </table>
-            <p class="plans-note">
+            <p class="plans-note" id="t-plans-note">
               Start on the free tier and upgrade only when your bot needs more performance or resources.
             </p>
           </section>
 
+          <!-- Live resource widget (mocked) -->
+          <section class="metrics">
+            <div class="section-title" id="t-metrics-title">Live node usage</div>
+            <div class="metrics-row">
+              <div class="meter">
+                <span class="meter-label" id="t-metrics-cpu-label">CPU</span>
+                <div class="meter-bar">
+                  <div class="meter-fill cpu" id="cpuFill"></div>
+                </div>
+                <span class="meter-value" id="cpuValue">35%</span>
+              </div>
+              <div class="meter">
+                <span class="meter-label" id="t-metrics-ram-label">RAM</span>
+                <div class="meter-bar">
+                  <div class="meter-fill ram" id="ramFill"></div>
+                </div>
+                <span class="meter-value" id="ramValue">58%</span>
+              </div>
+              <div class="meter">
+                <span class="meter-label" id="t-metrics-bots-label">Bots</span>
+                <div class="meter-bar">
+                  <div class="meter-fill" id="botsFill"></div>
+                </div>
+                <span class="meter-value" id="botsValue">2.5k</span>
+              </div>
+            </div>
+            <p class="metrics-footnote" id="t-metrics-footnote">
+              Data is for demonstration only. Connect your real metrics API to show live node stats.
+            </p>
+          </section>
+
           <section class="faq" id="faq">
-            <div class="section-title">FAQ & help</div>
+            <div class="section-title" id="t-faq-title">FAQ & help</div>
             <div class="faq-list">
               <details open>
                 <summary>
-                  How do I deploy my Discord.js bot?
+                  <span id="t-faq-1-q">How do I deploy my Discord.js bot?</span>
                   <span>+</span>
                 </summary>
-                <p>
+                <p id="t-faq-1-a">
                   Create a server in the panel, upload your code (or connect your Git repo),
                   set the startup command (for example <code>node index.js</code>), add your
                   <code>DISCORD_TOKEN</code> as an environment variable, then start the server.
@@ -817,40 +1137,40 @@
               </details>
               <details>
                 <summary>
-                  Is the hosting really free?
+                  <span id="t-faq-2-q">Is the hosting really free?</span>
                   <span>+</span>
                 </summary>
-                <p>
+                <p id="t-faq-2-a">
                   Yes. The free tier is permanent but has fair‑use limits on RAM, CPU, storage,
                   and number of bots per user. Premium plans remove most limits and add more power.
                 </p>
               </details>
               <details>
                 <summary>
-                  What languages are supported?
+                  <span id="t-faq-3-q">What languages are supported?</span>
                   <span>+</span>
                 </summary>
-                <p>
+                <p id="t-faq-3-a">
                   Any language that can run on Linux is supported, including Node.js, Python, Java,
                   and Go. Libraries like Discord.js, Pycord, and Nextcord work out of the box.
                 </p>
               </details>
               <details>
                 <summary>
-                  Can I host multiple bots?
+                  <span id="t-faq-4-q">Can I host multiple bots?</span>
                   <span>+</span>
                 </summary>
-                <p>
+                <p id="t-faq-4-a">
                   Yes, as long as you stay within your plan's resource limits. For best stability,
                   run each bot in its own server/container.
                 </p>
               </details>
               <details>
                 <summary>
-                  Where can I get support?
+                  <span id="t-faq-5-q">Where can I get support?</span>
                   <span>+</span>
                 </summary>
-                <p>
+                <p id="t-faq-5-a">
                   Join our Discord server, open a ticket from the panel, or browse the knowledge
                   base for guides, troubleshooting tips, and best practices.
                 </p>
@@ -862,14 +1182,17 @@
 
       <section class="cta">
         <div class="cta-text">
-          <h2>Ready to launch your Discord bot?</h2>
-          <p>Spin up your first bot in under a minute with always‑on hosting and a clean control panel.</p>
+          <h2 id="t-cta-title">Ready to launch your Discord bot?</h2>
+          <p id="t-cta-body">Spin up your first bot in under a minute with always‑on hosting and a clean control panel.</p>
         </div>
         <div class="cta-actions">
-          <a href="https://panel.your-domain" class="btn btn-primary">
+          <a href="https://panel.your-domain" class="btn btn-primary" id="t-cta-start">
             Get Started Free
           </a>
-          <div class="cta-meta">
+          <button class="btn btn-ghost" type="button" id="copyInvite">
+            Copy Discord invite
+          </button>
+          <div class="cta-meta" id="t-cta-meta">
             DDoS‑protected · 24/7 uptime · No credit card required
           </div>
         </div>
@@ -889,8 +1212,265 @@
     </div>
   </div>
 
+  <div class="copy-toast" id="copyToast">Invite link copied to clipboard</div>
+
   <script>
+    // YEAR
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // THEME TOGGLER
+    const themeToggle = document.getElementById("themeToggle");
+    const themeToggleText = document.getElementById("themeToggleText");
+    const themeToggleIcon = document.getElementById("themeToggleIcon");
+    const rootHtml = document.documentElement;
+
+    function setTheme(theme) {
+      rootHtml.setAttribute("data-theme", theme);
+      localStorage.setItem("obh-theme", theme);
+      if (theme === "dark") {
+        themeToggleText.textContent = "Dark";
+        themeToggleIcon.textContent = "🌙";
+      } else {
+        themeToggleText.textContent = "Light";
+        themeToggleIcon.textContent = "☀️";
+      }
+    }
+
+    const savedTheme = localStorage.getItem("obh-theme");
+    if (savedTheme === "light" || savedTheme === "dark") {
+      setTheme(savedTheme);
+    } else {
+      const prefersDark = window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setTheme(prefersDark ? "dark" : "light");
+    }
+
+    themeToggle.addEventListener("click", () => {
+      const current = rootHtml.getAttribute("data-theme") || "dark";
+      setTheme(current === "dark" ? "light" : "dark");
+    });
+
+    // LANGUAGE SWITCH (simple text map)
+    const translations = {
+      en: {
+        "t-brand-title": "OpenBotHost",
+        "t-free-tier": "Free Tier",
+        "t-brand-subtitle": "Free Discord bot hosting with an upgrade path when you need it.",
+        "t-status-label": "Current status: <strong>All systems online</strong>",
+        "t-hero-tag-main": "Free Discord Bot Hosting 24/7",
+        "t-hero-tag-sub": "Instant setup · No VPS needed",
+        "t-hero-title": "Instantly power up your <strong>Discord bots</strong> with always-on hosting.",
+        "t-hero-subtitle": "Deploy your bot in under a minute with 24/7 uptime, automatic restarts, live logs, and DDoS‑protected infrastructure. Built for Discord.js, Python, and more.",
+        "t-launch-panel": "Launch Panel 🚀",
+        "t-view-limits": "View limits & upgrades",
+        "t-meta-1": "Perfect for community, utility, and music bots",
+        "t-meta-2": "No credit card required",
+        "t-stat-uptime": "Network uptime",
+        "t-stat-bots": "Bots hosted",
+        "t-stat-locations": "Global locations",
+        "t-why": "Why OpenBotHost?",
+        "t-feat-1-title": "Free 24/7 hosting",
+        "t-feat-1-body": "Keep your bot online around the clock with automatic restarts and resource monitoring. Great for communities of all sizes.",
+        "t-feat-2-title": "Developer‑friendly panel",
+        "t-feat-2-body": "Upload via Git or ZIP, manage environment variables, and view real‑time console logs in one clean dashboard.",
+        "t-feat-3-title": "DDoS‑protected infra",
+        "t-feat-3-body": "Your bots run behind enterprise‑grade DDoS protection and isolated containers, helping keep your projects safe.",
+        "t-feat-4-title": "Secure & isolated",
+        "t-feat-4-body": "Each bot runs in its own sandbox with fair‑use limits on CPU, RAM, and storage to prevent abuse and instability.",
+        "t-feat-5-title": "Automatic backups",
+        "t-feat-5-body": "Scheduled backups for important data folders so you can quickly roll back from crashes, bugs, or mistakes.",
+        "t-feat-6-title": "Guides & community",
+        "t-feat-6-body": "Get help from our friendly Discord community, plus step‑by‑step guides for Discord.js, Pycord, and more.",
+        "t-plans-title": "Free plan vs premium",
+        "t-plans-toggle-free": "Free",
+        "t-plans-toggle-premium": "Premium",
+        "t-plans-col-feature": "Feature",
+        "t-plans-col-free": "Free Plan",
+        "t-plans-col-premium": "Premium",
+        "t-row-price-label": "Monthly price",
+        "t-row-price-free": "₹0",
+        "t-row-price-premium": "From ₹199 / month",
+        "t-row-ram-label": "RAM per bot",
+        "t-row-ram-free": "512 MB",
+        "t-row-ram-premium": "Up to 4 GB",
+        "t-row-cpu-label": "CPU priority",
+        "t-row-cpu-free": "Shared",
+        "t-row-cpu-premium": "High priority",
+        "t-row-disk-label": "Storage",
+        "t-row-disk-free": "1 GB SSD",
+        "t-row-disk-premium": "Up to 10 GB SSD",
+        "t-row-backup-label": "Backups",
+        "t-row-backup-free": "Weekly",
+        "t-row-backup-premium": "Daily + on‑demand",
+        "t-row-support-label": "Support",
+        "t-row-support-free": "Community Discord",
+        "t-row-support-premium": "Priority tickets + Discord",
+        "t-row-bots-label": "Max bots per user",
+        "t-row-bots-free": "1–2 bots",
+        "t-row-bots-premium": "Higher limits available",
+        "t-plans-note": "Start on the free tier and upgrade only when your bot needs more performance or resources.",
+        "t-metrics-title": "Live node usage",
+        "t-metrics-cpu-label": "CPU",
+        "t-metrics-ram-label": "RAM",
+        "t-metrics-bots-label": "Bots",
+        "t-metrics-footnote": "Data is for demonstration only. Connect your real metrics API to show live node stats.",
+        "t-faq-title": "FAQ & help",
+        "t-faq-1-q": "How do I deploy my Discord.js bot?",
+        "t-faq-1-a": "Create a server in the panel, upload your code (or connect your Git repo), set the startup command (for example <code>node index.js</code>), add your <code>DISCORD_TOKEN</code> as an environment variable, then start the server.",
+        "t-faq-2-q": "Is the hosting really free?",
+        "t-faq-2-a": "Yes. The free tier is permanent but has fair‑use limits on RAM, CPU, storage, and number of bots per user. Premium plans remove most limits and add more power.",
+        "t-faq-3-q": "What languages are supported?",
+        "t-faq-3-a": "Any language that can run on Linux is supported, including Node.js, Python, Java, and Go. Libraries like Discord.js, Pycord, and Nextcord work out of the box.",
+        "t-faq-4-q": "Can I host multiple bots?",
+        "t-faq-4-a": "Yes, as long as you stay within your plan's resource limits. For best stability, run each bot in its own server/container.",
+        "t-faq-5-q": "Where can I get support?",
+        "t-faq-5-a": "Join our Discord server, open a ticket from the panel, or browse the knowledge base for guides, troubleshooting tips, and best practices.",
+        "t-cta-title": "Ready to launch your Discord bot?",
+        "t-cta-body": "Spin up your first bot in under a minute with always‑on hosting and a clean control panel.",
+        "t-cta-start": "Get Started Free",
+        "t-cta-meta": "DDoS‑protected · 24/7 uptime · No credit card required"
+      },
+      hi: {
+        "t-brand-title": "OpenBotHost",
+        "t-free-tier": "फ्री टियर",
+        "t-brand-subtitle": "जब जरूरत हो तब अपग्रेड के साथ फ्री डिस्कॉर्ड बॉट होस्टिंग।",
+        "t-status-label": "वर्तमान स्थिति: <strong>सभी सिस्टम ऑनलाइन</strong>",
+        "t-hero-tag-main": "फ्री Discord Bot होस्टिंग 24/7",
+        "t-hero-tag-sub": "इंस्टेंट सेटअप · VPS की ज़रूरत नहीं",
+        "t-hero-title": "हमेशा ऑनलाइन होस्टिंग के साथ अपने <strong>Discord बॉट्स</strong> को तुरंत पावर‑अप करें।",
+        "t-hero-subtitle": "अपना बॉट एक मिनट से भी कम समय में डिप्लॉय करें, 24/7 अपटाइम, ऑटो रीस्टार्ट, लाइव लॉग्स और DDoS प्रोटेक्शन के साथ। Discord.js, Python और अन्य स्टैक्स के लिए तैयार।",
+        "t-launch-panel": "पैनल खोलें 🚀",
+        "t-view-limits": "लिमिट्स और अपग्रेड देखें",
+        "t-meta-1": "कम्युनिटी, यूटिलिटी और म्यूज़िक बॉट्स के लिए बेहतरीन",
+        "t-meta-2": "कोई कार्ड डिटेल्स नहीं चाहिए",
+        "t-stat-uptime": "नेटवर्क अपटाइम",
+        "t-stat-bots": "होस्टेड बॉट्स",
+        "t-stat-locations": "ग्लोबल लोकेशन्स",
+        "t-why": "क्यों चुनें OpenBotHost?",
+        "t-feat-1-title": "फ्री 24/7 होस्टिंग",
+        "t-feat-1-body": "आपका बॉट हमेशा ऑनलाइन, ऑटो रीस्टार्ट और रिसोर्स मॉनिटरिंग के साथ। छोटी और बड़ी दोनों कम्युनिटी के लिए सही।",
+        "t-feat-2-title": "डेवलपर‑फ्रेंडली पैनल",
+        "t-feat-2-body": "Git या ZIP से अपलोड करें, Env Vars मैनेज करें और एक ही डैशबोर्ड में रीयल‑टाइम कंसोल लॉग्स देखें।",
+        "t-feat-3-title": "DDoS‑प्रोटेक्टेड इन्फ्रा",
+        "t-feat-3-body": "आपके बॉट्स एंटरप्राइज़‑ग्रेड DDoS प्रोटेक्शन और आइसोलेटेड कंटेनर्स के पीछे चलते हैं, जिससे प्रोजेक्ट ज्यादा सुरक्षित रहते हैं।",
+        "t-feat-4-title": "सिक्योर और आइसोलेटेड",
+        "t-feat-4-body": "हर बॉट अपने Sandbox में चलता है, फेयर‑यूज़ CPU, RAM और स्टोरेज लिमिट्स के साथ, ताकि एब्यूज़ और क्रैश कम हों।",
+        "t-feat-5-title": "ऑटोमेटिक बैकअप",
+        "t-feat-5-body": "महत्वपूर्ण डेटा फोल्डर्स के लिए शेड्यूल्ड बैकअप, ताकि क्रैश या बग से जल्दी रिकवर कर सकें।",
+        "t-feat-6-title": "गाइड्स और कम्युनिटी",
+        "t-feat-6-body": "हमारे फ्रेंडली Discord सर्वर से मदद लें और Discord.js, Pycord वगैरह के लिए स्टेप‑बाय‑स्टेप गाइड्स फॉलो करें।",
+        "t-plans-title": "फ्री प्लान बनाम प्रीमियम",
+        "t-plans-toggle-free": "फ्री",
+        "t-plans-toggle-premium": "प्रीमियम",
+        "t-plans-col-feature": "फ़ीचर",
+        "t-plans-col-free": "फ्री प्लान",
+        "t-plans-col-premium": "प्रीमियम",
+        "t-row-price-label": "मंथली प्राइस",
+        "t-row-price-free": "₹0",
+        "t-row-price-premium": "₹199 / माह से शुरू",
+        "t-row-ram-label": "प्रति बॉट RAM",
+        "t-row-ram-free": "512 MB",
+        "t-row-ram-premium": "4 GB तक",
+        "t-row-cpu-label": "CPU प्रायोरिटी",
+        "t-row-cpu-free": "शेयर्ड",
+        "t-row-cpu-premium": "हाई प्रायोरिटी",
+        "t-row-disk-label": "स्टोरेज",
+        "t-row-disk-free": "1 GB SSD",
+        "t-row-disk-premium": "10 GB SSD तक",
+        "t-row-backup-label": "बैकअप",
+        "t-row-backup-free": "साप्ताहिक",
+        "t-row-backup-premium": "डेली + ऑन‑डिमांड",
+        "t-row-support-label": "सपोर्ट",
+        "t-row-support-free": "कम्युनिटी Discord",
+        "t-row-support-premium": "प्रायोरिटी टिकट + Discord",
+        "t-row-bots-label": "प्रति यूज़र मैक्स बॉट्स",
+        "t-row-bots-free": "1–2 बॉट्स",
+        "t-row-bots-premium": "ज़्यादा लिमिट्स उपलब्ध",
+        "t-plans-note": "पहले फ्री टियर पर शुरू करें और जब बॉट बड़ा हो जाए तब ही अपग्रेड करें।",
+        "t-metrics-title": "लाइव नोड यूज़ेज (डेमो)",
+        "t-metrics-cpu-label": "CPU",
+        "t-metrics-ram-label": "RAM",
+        "t-metrics-bots-label": "Bots",
+        "t-metrics-footnote": "यह डेटा सिर्फ डेमो के लिए है। असली नोड स्टैट्स दिखाने के लिए अपनी मेट्रिक API कनेक्ट करें।",
+        "t-faq-title": "FAQ और मदद",
+        "t-faq-1-q": "मैं अपना Discord.js बॉट कैसे डिप्लॉय करूं?",
+        "t-faq-1-a": "पैनल में एक सर्वर बनाएं, कोड अपलोड करें (या Git रिपो कनेक्ट करें), स्टार्टअप कमांड सेट करें (जैसे <code>node index.js</code>), <code>DISCORD_TOKEN</code> Env Var में जोड़ें और सर्वर स्टार्ट कर दें।",
+        "t-faq-2-q": "क्या होस्टिंग सच में फ्री है?",
+        "t-faq-2-a": "हाँ। फ्री टियर हमेशा के लिए है लेकिन RAM, CPU, स्टोरेज और प्रति यूज़र बॉट्स की फेयर‑यूज़ लिमिट्स रहती हैं। प्रीमियम प्लान ज़्यादा पावर और कम लिमिट्स देता है।",
+        "t-faq-3-q": "कौन‑सी लैंग्वेज सपोर्टेड हैं?",
+        "t-faq-3-a": "जो भी लैंग्वेज Linux पर चल सकती है, जैसे Node.js, Python, Java, Go वगैरह। Discord.js, Pycord और Nextcord जैसी लाइब्रेरी सीधे काम करती हैं।",
+        "t-faq-4-q": "क्या मैं एक से ज़्यादा बॉट होस्ट कर सकता हूँ?",
+        "t-faq-4-a": "हाँ, जब तक आप अपने प्लान की रिसोर्स लिमिट्स के अंदर हैं। बेस्ट स्टेबिलिटी के लिए हर बॉट को अलग सर्वर/कंटेनर में रखें।",
+        "t-faq-5-q": "मदद कहाँ मिलेगी?",
+        "t-faq-5-a": "हमारे Discord सर्वर से जुड़ें, पैनल से टिकट खोलें या नॉलेज बेस में गाइड्स और ट्रबलशूटिंग आर्टिकल्स देखें।",
+        "t-cta-title": "क्या आप अपना Discord बॉट लॉन्च करने के लिए तैयार हैं?",
+        "t-cta-body": "एक मिनट से भी कम समय में अपना पहला बॉट रन कराएं, 24/7 होस्टिंग और क्लीन कंट्रोल पैनल के साथ।",
+        "t-cta-start": "अभी शुरू करें (फ्री)",
+        "t-cta-meta": "DDoS‑प्रोटेक्टेड · 24/7 अपटाइम · कार्ड डिटेल्स की ज़रूरत नहीं"
+      }
+    };
+
+    const langSelect = document.getElementById("langSelect");
+
+    function applyLanguage(lang) {
+      const dict = translations[lang] || translations.en;
+      Object.keys(dict).forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.innerHTML = dict[id];
+        }
+      });
+      localStorage.setItem("obh-lang", lang);
+    }
+
+    const savedLang = localStorage.getItem("obh-lang") || "en";
+    langSelect.value = savedLang;
+    applyLanguage(savedLang);
+
+    langSelect.addEventListener("change", (e) => {
+      applyLanguage(e.target.value);
+    });
+
+    // METRICS (simple random animation)
+    function animateMeter(idFill, idValue, min, max, suffix) {
+      const fill = document.getElementById(idFill);
+      const value = document.getElementById(idValue);
+      if (!fill || !value) return;
+      const num = Math.floor(Math.random() * (max - min + 1)) + min;
+      if (suffix === "%") {
+        fill.style.width = num + "%";
+        value.textContent = num + "%";
+      } else {
+        // for bots, assume max ~ 3k
+        const pct = Math.min(100, Math.floor((num / max) * 100));
+        fill.style.width = pct + "%";
+        value.textContent = num.toLocaleString();
+      }
+    }
+
+    function tickMetrics() {
+      animateMeter("cpuFill", "cpuValue", 20, 80, "%");
+      animateMeter("ramFill", "ramValue", 30, 90, "%");
+      animateMeter("botsFill", "botsValue", 1500, 2800, "bots");
+    }
+
+    tickMetrics();
+    setInterval(tickMetrics, 4000);
+
+    // COPY DISCORD INVITE
+    const copyBtn = document.getElementById("copyInvite");
+    const toast = document.getElementById("copyToast");
+
+    copyBtn.addEventListener("click", async () => {
+      const invite = "https://discord.gg/yourInviteCode";
+      try {
+        await navigator.clipboard.writeText(invite);
+      } catch (e) {
+        // ignore; just show toast
+      }
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 1800);
+    });
   </script>
 </body>
 </html>
