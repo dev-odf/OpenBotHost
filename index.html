@@ -424,7 +424,7 @@
     [data-theme="light"] details[open]{background:#eef2ff;border-color:rgba(129,140,248,.9);}
     details p{margin-top:4px;color:var(--muted);line-height:1.45;}
 
-    /* Three big cards row */
+    /* Three main cards */
 
     .plans-row{
       margin-top:18px;margin-bottom:4px;
@@ -769,7 +769,7 @@
         </div>
       </div>
 
-      <!-- THREE MAIN CARDS (like screenshot) -->
+      <!-- THREE MAIN CARDS -->
       <section class="plans-row">
         <div class="plans-card">
           <h3 class="plans-card-title">Discord Bot</h3>
@@ -878,13 +878,214 @@
       setTheme(cur==="dark"?"light":"dark");
     });
 
-    // Language switch
-    const translations = {/* same object as before, omitted for brevity in explanation */};
-    // For brevity in this snippet, reuse the translations object from previous answer
-    // --- paste the full translations object here exactly as earlier ---
+    // Translations
+    const translations = {
+      en: {
+        "t-brand-title": "OpenBotHost",
+        "t-free-tier": "Free Tier",
+        "t-brand-subtitle": "Free Discord bot hosting with an upgrade path when you need it.",
+        "t-status-label": "Current status: <strong>All systems online</strong>",
+        "t-hero-tag-main": "Free Discord Bot Hosting 24/7",
+        "t-hero-tag-sub": "Instant setup · No VPS needed",
+        "t-hero-title": "Instantly power up your <strong>Discord bots</strong> with always-on hosting.",
+        "t-hero-subtitle": "Deploy your bot in under a minute with 24/7 uptime, automatic restarts, live logs, and DDoS‑protected infrastructure. Built for Discord.js, Python, and more.",
+        "t-launch-panel": "Launch Panel 🚀",
+        "t-view-limits": "View limits & upgrades",
+        "t-meta-1": "Perfect for community, utility, and music bots",
+        "t-meta-2": "No credit card required",
+        "t-stat-uptime": "Network uptime",
+        "t-stat-bots": "Bots hosted",
+        "t-stat-locations": "Global locations",
+        "t-why": "Why OpenBotHost?",
+        "t-feat-1-title": "Free 24/7 hosting",
+        "t-feat-1-body": "Keep your bot online around the clock with automatic restarts and resource monitoring. Great for communities of all sizes.",
+        "t-feat-2-title": "Developer‑friendly panel",
+        "t-feat-2-body": "Upload via Git or ZIP, manage environment variables, and view real‑time console logs in one clean dashboard.",
+        "t-feat-3-title": "DDoS‑protected infra",
+        "t-feat-3-body": "Your bots run behind enterprise‑grade DDoS protection and isolated containers, helping keep your projects safe.",
+        "t-feat-4-title": "Secure & isolated",
+        "t-feat-4-body": "Each bot runs in its own sandbox with fair‑use limits on CPU, RAM, and storage to prevent abuse and instability.",
+        "t-feat-5-title": "Automatic backups",
+        "t-feat-5-body": "Scheduled backups for important data folders so you can quickly roll back from crashes, bugs, or mistakes.",
+        "t-feat-6-title": "Guides & community",
+        "t-feat-6-body": "Get help from our friendly Discord community, plus step‑by‑step guides for Discord.js, Pycord, and more.",
+        "t-plans-title": "Free plan vs premium",
+        "t-plans-toggle-free": "Free",
+        "t-plans-toggle-premium": "Premium",
+        "t-plans-col-feature": "Feature",
+        "t-plans-col-free": "Free Plan",
+        "t-plans-col-premium": "Premium",
+        "t-row-price-label": "Monthly price",
+        "t-row-price-free": "₹0",
+        "t-row-price-premium": "From ₹199 / month",
+        "t-row-ram-label": "RAM per bot",
+        "t-row-ram-free": "512 MB",
+        "t-row-ram-premium": "Up to 4 GB",
+        "t-row-cpu-label": "CPU priority",
+        "t-row-cpu-free": "Shared",
+        "t-row-cpu-premium": "High priority",
+        "t-row-disk-label": "Storage",
+        "t-row-disk-free": "1 GB SSD",
+        "t-row-disk-premium": "Up to 10 GB SSD",
+        "t-row-backup-label": "Backups",
+        "t-row-backup-free": "Weekly",
+        "t-row-backup-premium": "Daily + on‑demand",
+        "t-row-support-label": "Support",
+        "t-row-support-free": "Community Discord",
+        "t-row-support-premium": "Priority tickets + Discord",
+        "t-row-bots-label": "Max bots per user",
+        "t-row-bots-free": "1–2 bots",
+        "t-row-bots-premium": "Higher limits available",
+        "t-plans-note": "Start on the free tier and upgrade only when your bot needs more performance or resources.",
+        "t-metrics-title": "Live node usage",
+        "t-metrics-cpu-label": "CPU",
+        "t-metrics-ram-label": "RAM",
+        "t-metrics-bots-label": "Bots",
+        "t-metrics-footnote": "Data is for demonstration only. Connect your real metrics API to show live node stats.",
+        "t-faq-title": "FAQ & help",
+        "t-faq-1-q": "How do I deploy my Discord.js bot?",
+        "t-faq-1-a": "Create a server in the panel, upload your code (or connect your Git repo), set the startup command (for example <code>node index.js</code>), add your <code>DISCORD_TOKEN</code> as an environment variable, then start the server.",
+        "t-faq-2-q": "Is the hosting really free?",
+        "t-faq-2-a": "Yes. The free tier is permanent but has fair‑use limits on RAM, CPU, storage, and number of bots per user. Premium plans remove most limits and add more power.",
+        "t-faq-3-q": "What languages are supported?",
+        "t-faq-3-a": "Any language that can run on Linux is supported, including Node.js, Python, Java, and Go. Libraries like Discord.js, Pycord, and Nextcord work out of the box.",
+        "t-faq-4-q": "Can I host multiple bots?",
+        "t-faq-4-a": "Yes, as long as you stay within your plan's resource limits. For best stability, run each bot in its own server/container.",
+        "t-faq-5-q": "Where can I get support?",
+        "t-faq-5-a": "Join our Discord server, open a ticket from the panel, or browse the knowledge base for guides, troubleshooting tips, and best practices.",
+        "t-cta-title": "Ready to launch your Discord bot?",
+        "t-cta-body": "Spin up your first bot in under a minute with always‑on hosting and a clean control panel.",
+        "t-cta-start": "Get Started Free",
+        "t-cta-meta": "DDoS‑protected · 24/7 uptime · No credit card required"
+      },
+      hi: {
+        "t-brand-title": "OpenBotHost",
+        "t-free-tier": "फ्री टियर",
+        "t-brand-subtitle": "जब जरूरत हो तब अपग्रेड के साथ फ्री डिस्कॉर्ड बॉट होस्टिंग।",
+        "t-status-label": "वर्तमान स्थिति: <strong>सभी सिस्टम ऑनलाइन</strong>",
+        "t-hero-tag-main": "फ्री Discord Bot होस्टिंग 24/7",
+        "t-hero-tag-sub": "इंस्टेंट सेटअप · VPS की ज़रूरत नहीं",
+        "t-hero-title": "हमेशा ऑनलाइन होस्टिंग के साथ अपने <strong>Discord बॉट्स</strong> को तुरंत पावर‑अप करें।",
+        "t-hero-subtitle": "अपना बॉट एक मिनट से भी कम समय में डिप्लॉय करें, 24/7 अपटाइम, ऑटो रीस्टार्ट, लाइव लॉग्स और DDoS प्रोटेक्शन के साथ। Discord.js, Python और अन्य स्टैक्स के लिए तैयार।",
+        "t-launch-panel": "पैनल खोलें 🚀",
+        "t-view-limits": "लिमिट्स और अपग्रेड देखें",
+        "t-meta-1": "कम्युनिटी, यूटिलिटी और म्यूज़िक बॉट्स के लिए बेहतरीन",
+        "t-meta-2": "कोई कार्ड डिटेल्स नहीं चाहिए",
+        "t-stat-uptime": "नेटवर्क अपटाइम",
+        "t-stat-bots": "होस्टेड बॉट्स",
+        "t-stat-locations": "ग्लोबल लोकेशन्स",
+        "t-why": "क्यों चुनें OpenBotHost?",
+        "t-feat-1-title": "फ्री 24/7 होस्टिंग",
+        "t-feat-1-body": "आपका बॉट हमेशा ऑनलाइन, ऑटो रीस्टार्ट और रिसोर्स मॉनिटरिंग के साथ। छोटी और बड़ी दोनों कम्युनिटी के लिए सही।",
+        "t-feat-2-title": "डेवलपर‑फ्रेंडली पैनल",
+        "t-feat-2-body": "Git या ZIP से अपलोड करें, Env Vars मैनेज करें और एक ही डैशबोर्ड में रीयल‑टाइम कंसोल लॉग्स देखें।",
+        "t-feat-3-title": "DDoS‑प्रोटेक्टेड इन्फ्रा",
+        "t-feat-3-body": "आपके बॉट्स एंटरप्राइज़‑ग्रेड DDoS प्रोटेक्शन और आइसोलेटेड कंटेनर्स के पीछे चलते हैं, जिससे प्रोजेक्ट ज्यादा सुरक्षित रहते हैं।",
+        "t-feat-4-title": "सिक्योर और आइसोलेटेड",
+        "t-feat-4-body": "हर बॉट अपने Sandbox में चलता है, फेयर‑यूज़ CPU, RAM और स्टोरेज लिमिट्स के साथ, ताकि एब्यूज़ और क्रैश कम हों।",
+        "t-feat-5-title": "ऑटोमेटिक बैकअप",
+        "t-feat-5-body": "महत्वपूर्ण डेटा फोल्डर्स के लिए शेड्यूल्ड बैकअप, ताकि क्रैश या बग से जल्दी रिकवर कर सकें।",
+        "t-feat-6-title": "गाइड्स और कम्युनिटी",
+        "t-feat-6-body": "हमारे फ्रेंडली Discord सर्वर से मदद लें और Discord.js, Pycord वगैरह के लिए स्टेप‑बाय‑स्टेप गाइड्स फॉलो करें।",
+        "t-plans-title": "फ्री प्लान बनाम प्रीमियम",
+        "t-plans-toggle-free": "फ्री",
+        "t-plans-toggle-premium": "प्रीमियम",
+        "t-plans-col-feature": "फ़ीचर",
+        "t-plans-col-free": "फ्री प्लान",
+        "t-plans-col-premium": "प्रीमियम",
+        "t-row-price-label": "मंथली प्राइस",
+        "t-row-price-free": "₹0",
+        "t-row-price-premium": "₹199 / माह से शुरू",
+        "t-row-ram-label": "प्रति बॉट RAM",
+        "t-row-ram-free": "512 MB",
+        "t-row-ram-premium": "4 GB तक",
+        "t-row-cpu-label": "CPU प्रायोरिटी",
+        "t-row-cpu-free": "शेयर्ड",
+        "t-row-cpu-premium": "हाई प्रायोरिटी",
+        "t-row-disk-label": "स्टोरेज",
+        "t-row-disk-free": "1 GB SSD",
+        "t-row-disk-premium": "10 GB SSD तक",
+        "t-row-backup-label": "बैकअप",
+        "t-row-backup-free": "साप्ताहिक",
+        "t-row-backup-premium": "डेली + ऑन‑डिमांड",
+        "t-row-support-label": "सपोर्ट",
+        "t-row-support-free": "कम्युनिटी Discord",
+        "t-row-support-premium": "प्रायोरिटी टिकट + Discord",
+        "t-row-bots-label": "प्रति यूज़र मैक्स बॉट्स",
+        "t-row-bots-free": "1–2 बॉट्स",
+        "t-row-bots-premium": "ज़्यादा लिमिट्स उपलब्ध",
+        "t-plans-note": "पहले फ्री टियर पर शुरू करें और जब बॉट बड़ा हो जाए तब ही अपग्रेड करें।",
+        "t-metrics-title": "लाइव नोड यूज़ेज (डेमो)",
+        "t-metrics-cpu-label": "CPU",
+        "t-metrics-ram-label": "RAM",
+        "t-metrics-bots-label": "Bots",
+        "t-metrics-footnote": "यह डेटा सिर्फ डेमो के लिए है। असली नोड स्टैट्स दिखाने के लिए अपनी मेट्रिक API कनेक्ट करें।",
+        "t-faq-title": "FAQ और मदद",
+        "t-faq-1-q": "मैं अपना Discord.js बॉट कैसे डिप्लॉय करूं?",
+        "t-faq-1-a": "पैनल में एक सर्वर बनाएं, कोड अपलोड करें (या Git रिपो कनेक्ट करें), स्टार्टअप कमांड सेट करें (जैसे <code>node index.js</code>), <code>DISCORD_TOKEN</code> Env Var में जोड़ें और सर्वर स्टार्ट कर दें।",
+        "t-faq-2-q": "क्या होस्टिंग सच में फ्री है?",
+        "t-faq-2-a": "हाँ। फ्री टियर हमेशा के लिए है लेकिन RAM, CPU, स्टोरेज और प्रति यूज़र बॉट्स की फेयर‑यूज़ लिमिट्स रहती हैं। प्रीमियम प्लान ज़्यादा पावर और कम लिमिट्स देता है।",
+        "t-faq-3-q": "कौन‑सी लैंग्वेज सपोर्टेड हैं?",
+        "t-faq-3-a": "जो भी लैंग्वेज Linux पर चल सकती है, जैसे Node.js, Python, Java, Go वगैरह। Discord.js, Pycord और Nextcord जैसी लाइब्रेरी सीधे काम करती हैं।",
+        "t-faq-4-q": "क्या मैं एक से ज़्यादा बॉट होस्ट कर सकता हूँ?",
+        "t-faq-4-a": "हाँ, जब तक आप अपने प्लान की रिसोर्स लिमिट्स के अंदर हैं। बेस्ट स्टेबिलिटी के लिए हर बॉट को अलग सर्वर/कंटेनर में रखें।",
+        "t-faq-5-q": "मदद कहाँ मिलेगी?",
+        "t-faq-5-a": "हमारे Discord सर्वर से जुड़ें, पैनल से टिकट खोलें या नॉलेज बेस में गाइड्स और ट्रबलशूटिंग आर्टिकल्स देखें।",
+        "t-cta-title": "क्या आप अपना Discord बॉट लॉन्च करने के लिए तैयार हैं?",
+        "t-cta-body": "एक मिनट से भी कम समय में अपना पहला बॉट रन कराएं, 24/7 होस्टिंग और क्लीन कंट्रोल पैनल के साथ।",
+        "t-cta-start": "अभी शुरू करें (फ्री)",
+        "t-cta-meta": "DDoS‑प्रोटेक्टेड · 24/7 अपटाइम · कार्ड डिटेल्स की ज़रूरत नहीं"
+      }
+    };
 
+    const langSelect = document.getElementById("langSelect");
+
+    function applyLanguage(lang) {
+      const dict = translations[lang] || translations.en;
+      Object.keys(dict).forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = dict[id];
+      });
+      localStorage.setItem("obh-lang", lang);
+    }
+
+    const savedLang = localStorage.getItem("obh-lang") || "en";
+    langSelect.value = savedLang;
+    applyLanguage(savedLang);
+    langSelect.addEventListener("change", e => applyLanguage(e.target.value));
+
+    // Metrics animation
+    function animateMeter(idFill, idValue, min, max, type) {
+      const fill = document.getElementById(idFill);
+      const value = document.getElementById(idValue);
+      if (!fill || !value) return;
+      const num = Math.floor(Math.random() * (max - min + 1)) + min;
+      if (type === "%") {
+        fill.style.width = num + "%";
+        value.textContent = num + "%";
+      } else {
+        const pct = Math.min(100, Math.floor((num / max) * 100));
+        fill.style.width = pct + "%";
+        value.textContent = num.toLocaleString();
+      }
+    }
+    function tickMetrics() {
+      animateMeter("cpuFill", "cpuValue", 20, 80, "%");
+      animateMeter("ramFill", "ramValue", 30, 90, "%");
+      animateMeter("botsFill", "botsValue", 1500, 2800, "bots");
+    }
+    tickMetrics();
+    setInterval(tickMetrics, 4000);
+
+    // Copy invite
+    const copyBtn = document.getElementById("copyInvite");
+    const toast = document.getElementById("copyToast");
+    copyBtn.addEventListener("click", async () => {
+      const invite = "https://discord.gg/yourInviteCode";
+      try { await navigator.clipboard.writeText(invite); } catch(e) {}
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 1800);
+    });
   </script>
-  <!-- NOTE: paste the full translations, metrics animation, and copyInvite JS from the previous answer here 
-       (omitted in this short snippet to keep it readable). -->
 </body>
 </html>
