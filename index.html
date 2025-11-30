@@ -4,9 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OpenBotHost – Free Discord Bot Hosting</title>
+
   <style>
     :root {
       --bg: #050412;
+      --bg-alt: #060312;
       --card-bg: #0b0714;
       --accent: #8f5cff;
       --accent-2: #e050ff;
@@ -17,9 +19,9 @@
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
@@ -35,11 +37,16 @@
       text-decoration: none;
     }
 
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
     header {
       padding: 1.5rem 7vw;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
     }
 
     .logo {
@@ -65,7 +72,6 @@
       border-radius: 999px;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
       color: #ffffff;
-      text-decoration: none;
       font-weight: 600;
       font-size: 0.95rem;
       box-shadow: 0 12px 30px rgba(125, 64, 255, 0.5);
@@ -96,7 +102,7 @@
       padding: 2rem 7vw 4rem;
     }
 
-    /* Hero */
+    /* HERO (from your original design, adjusted to purple) */
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
@@ -176,9 +182,9 @@
       color: #b9a9ff;
     }
 
-    /* Pricing */
+    /* PRICING (new block) */
     .pricing {
-      padding: 3rem 0 3.5rem;
+      padding: 3rem 0;
     }
 
     .section-title {
@@ -260,10 +266,43 @@
       font-size: 0.85rem;
     }
 
-    /* About */
+    /* FAQ / knowledge base teaser (from your original content) */
+    .faq-teaser {
+      margin-top: 3.5rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 2rem 2.2rem;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #140a2b, #060312);
+      border: 1px solid rgba(180, 150, 255, 0.45);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+    }
+
+    .faq-teaser h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.6rem;
+      color: var(--accent-soft);
+    }
+
+    .faq-teaser p {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+    }
+
+    .faq-teaser a {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #f0e7ff;
+      text-decoration: underline;
+    }
+
+    /* ABOUT (new block) */
     .about {
       padding: 3.5rem 0 4.5rem;
-      background: #050412;
+      background: var(--bg-alt);
+      margin-top: 3rem;
     }
 
     .about-inner {
@@ -333,7 +372,7 @@
   </header>
 
   <main>
-    <!-- Hero -->
+    <!-- HERO – your original hero content -->
     <section class="hero">
       <div>
         <h1 class="hero-title">
@@ -358,9 +397,9 @@
       </div>
 
       <aside class="hero-card">
-        <h3>Why OpenBotHost?</h3>
-        <p>Fast, simple, and scalable hosting for Discord bots, game servers, and web projects.</p>
-        <p>Secure cloud infrastructure with robust DDoS protection keeps your projects safe.</p>
+        <h3>Power up your projects</h3>
+        <p>Your bots and data are always safe thanks to robust DDoS defenses and secure cloud infrastructure.</p>
+        <p>Upgrade anytime for higher limits and guaranteed uptime.</p>
         <small>
           Get help from our friendly community, discover guides and tutorials, and unlock advanced features
           for your Discord bot.
@@ -368,7 +407,7 @@
       </aside>
     </section>
 
-    <!-- Pricing / Features -->
+    <!-- NEW: Pricing / features cards -->
     <section class="pricing" id="pricing">
       <h2 class="section-title">What You Can Host</h2>
       <p class="section-sub">
@@ -426,17 +465,29 @@
       </div>
     </section>
 
-    <!-- About Us -->
+    <!-- Original FAQ / knowledge base teaser -->
+    <section class="faq-teaser">
+      <h2>Need Help?</h2>
+      <p>
+        Find answers to some of the most common questions below. If you can't find what you're looking for,
+        feel free to reach out to our support team or visit our knowledge base.
+      </p>
+      <a href="#" id="kb-link">Visit Knowledge Base</a>
+    </section>
+
+    <!-- NEW: About Us block -->
     <section class="about" id="about">
       <div class="about-inner">
         <h2>About Us</h2>
         <p class="about-lead">
-          We're a startup on a mission to make web and bot hosting simple and accessible for everyone.
+          We're a startup on a mission to revolutionize web hosting solutions.
+          Our platform makes it simple for anyone to host websites, Discord bots,
+          and game servers with just a few clicks.
         </p>
         <p>
-          Host websites, Discord bots, and game servers with just a few clicks using our modern,
-          developer‑friendly platform. Join our Discord community to connect with other users, get support,
-          share feedback, and help shape the future of OpenBotHost.
+          We're building something special, and we'd love for you to be part of our journey!
+          Join our Discord community to connect with other users, get support, share feedback,
+          and help us grow. Every member helps shape the future of OpenBotHost.
         </p>
         <a href="https://discord.gg/yourinvite" class="btn-primary about-discord">
           Join Our Discord
@@ -451,6 +502,8 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+    // set your real KB link here
+    document.getElementById("kb-link").href = "https://openbot.host/knowledgebase";
   </script>
 </body>
 </html>
