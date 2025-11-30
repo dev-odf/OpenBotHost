@@ -1,427 +1,456 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OpenBotHost – Free Discord Bot Hosting</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Free Discord Bot Hosting 24/7 – OpenBotHost">
-  <link rel="icon" href="/icon-nobg.png">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body.bg-gray-900 {
-      background: linear-gradient(135deg, #1a164d 60%, #48146b 100%) !important;
-    }
-    .star { color: #ffd700; transition: filter 0.6s; }
-    .star.shine { filter: drop-shadow(0 0 6px #fff700) brightness(1.2); }
-
-    .bg-panels { position: fixed; inset: 0; z-index: -1; display: flex; width: 100vw; height: 100vh; overflow: hidden; pointer-events: none; }
-    .panel { flex: 1; height: 100vh; background: linear-gradient(135deg, #1b2454c4 70%, #6d36c9 100%);
-      opacity: 0.45; transform: translateY(0); transition: transform 0.5s cubic-bezier(.61,-0.21,.29,1.18);
-      border-radius: 32px; margin: 0 6px;
-      animation: panelsSlideIn 1s cubic-bezier(.5,0,.2,1.4) both;
-    }
-    @media(max-width: 900px) { .bg-panels { display: none; } }
-    @keyframes panelsSlideIn {
-      0% { opacity: 0; transform: translateY(90px); }
-      100% { opacity: 0.45; transform: translateY(0); }
+    :root {
+      --bg: #050412;
+      --card-bg: #0b0714;
+      --accent: #8f5cff;
+      --accent-2: #e050ff;
+      --accent-soft: #c78bff;
+      --text-main: #f5f0ff;
+      --text-soft: #c9c0ff;
+      --border-soft: rgba(150, 120, 255, 0.35);
     }
 
-    nav, footer { background: #21194e !important; }
-    .header-logo { height: 2.8em; width: 2.8em; margin-right:20px; vertical-align:middle; border-radius:18px; box-shadow:0 0 10px #805ad5; background:#29295b; animation: fadeDown 1.2s both; }
-    @keyframes fadeDown { from { opacity: 0; transform: translateY(-24px);} to {opacity: 1; transform:translateY(0);} }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #3e1b6d, var(--bg));
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      padding: 1.5rem 7vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: 0.03em;
+      color: var(--accent-soft);
+    }
+
     nav a {
-      transition: color 0.25s, text-decoration-color 0.3s, filter 0.28s;
-      text-underline-offset: 4px;
+      margin-left: 1.5rem;
+      font-size: 0.95rem;
+      color: #dbd3ff;
     }
+
     nav a:hover {
-      color: #c7a9ff !important;
-      text-decoration: underline;
-      filter: brightness(1.3);
+      color: #ffffff;
     }
-    .feature-ribbon-container { width: 100vw; overflow: hidden; background: linear-gradient(90deg, #271858 80%, #3a2373 100%); position: relative; z-index: 19; height: 54px; border-bottom: 1px solid #392f67; display: flex; align-items: center; animation: fadeUp 1.3s; }
-    .feature-ribbon-track { display: flex; align-items: center; gap: 34px; font-size: 1.13rem; color: #fafaff; font-weight: 500; white-space: nowrap; will-change: transform; }
-    .feature-ribbon-track span { display: flex; align-items: center; gap: 7px; opacity: 0.8; transition: opacity 0.33s, filter 0.25s; }
-    .feature-ribbon-track span:hover { opacity: 1; filter: brightness(1.6); text-shadow: 0 0 8px #8a2be288; }
-    .feature-ribbon-track i { font-size: 1.4em; vertical-align: middle; transition: color 0.2s; }
-    .fade-in-section { opacity: 0; transform: translateY(48px); transition: opacity 1s, transform 0.9s; }
-    .fade-in-section.visible { opacity: 1; transform: none; }
-    .modern-btn {
-      box-shadow: 0 5px 20px #5f329b55, 0 2px 6px #2a255e33; animation: bounceGlow 2s infinite alternate;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .modern-btn:hover {
-      transform: scale(1.07) rotate(-2deg)!important;
-      background: linear-gradient(90deg,#6e45e2 66%,#885bea 100%);
-      filter: brightness(1.18) drop-shadow(0 0 12px #9f65e7bb);
-    }
-    @keyframes bounceGlow {
-      0% { box-shadow: 0 5px 20px #5f329b55;}
-      100% { box-shadow: 0 10px 32px #b980ff99;}
-    }
-    @keyframes fadeUp {
-      0% { opacity:0; transform:translateY(42px);}
-      100% { opacity:1; transform:none;}
-    }
-    .stats-card {
-      transition: transform 0.22s, box-shadow 0.28s, background 0.3s;
-      background: linear-gradient(135deg, #27185d 70%, #6330a0 100%);
-    }
-    .stats-card:hover {
-      transform: scale(1.07);
-      box-shadow: 0 0 14px #a084ff;
-      background: linear-gradient(120deg, #3b2077 63%, #7e3ff7 100%);
-    }
-    .footer-logo { height: 78px; width:78px; border-radius:22px; background:transparent; box-shadow:0 0 14px #6366f1; animation: fadeDown 1.3s; }
-    /* FAQ Section Styling – PURPLE/INDIGO THEME */
-    .faq-left-card {
-      background: #251a39;
-      border-radius: 1.5rem;
-      box-shadow: 0 2px 18px #23124e44;
-      padding: 2.5rem 2.2rem;
-      min-height: 310px;
-      display: flex; flex-direction: column; justify-content: center;
-    }
-    .faq-side-btn {
-      background: linear-gradient(90deg, #9f5fff 60%, #6366f1 100%);
-      color: #fff;
-      border-radius: 0.7rem;
+
+    .btn-primary {
+      display: inline-block;
+      padding: 0.8rem 1.7rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #ffffff;
+      text-decoration: none;
       font-weight: 600;
-      font-size: 1.17rem;
-      padding: 0.9em 2em;
-      transition: background 0.22s, transform 0.14s;
-      box-shadow: 0 2px 12px #9f5fff77;
-      margin-top: 1.65rem;
-      display: inline-flex;
+      font-size: 0.95rem;
+      box-shadow: 0 12px 30px rgba(125, 64, 255, 0.5);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(125, 64, 255, 0.7);
+      filter: brightness(1.05);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(207, 192, 255, 0.3);
+      color: #e4dcff;
+      font-size: 0.9rem;
+      margin-left: 0.75rem;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255, 255, 255, 0.7);
+    }
+
+    main {
+      padding: 2rem 7vw 4rem;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 3rem;
       align-items: center;
+      padding: 2.5rem 0 3rem;
     }
-    .faq-side-btn:hover {
-      background: linear-gradient(90deg, #6366f1 66%, #7c3aed 100%);
-      transform: scale(1.06);
-      box-shadow: 0 6px 20px #885bea77;
+
+    .hero-title {
+      font-size: 2.7rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      margin-bottom: 1rem;
     }
-    .faq-card {
-      border-radius: 1.2rem;
-      background: #20153a;
-      padding: 1.35rem 1.2rem;
+
+    .hero-title span {
+      background: linear-gradient(135deg, var(--accent-soft), #ffffff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub {
+      color: var(--text-soft);
+      max-width: 34rem;
+      font-size: 0.98rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badges {
       display: flex;
-      align-items: center;
-      gap: 1.1rem;
-      box-shadow: 0 1px 12px #271c2e33;
-      border: 1px solid #40287e;
-      transition: border 0.21s, box-shadow 0.21s, background 0.22s;
-      margin-bottom: 1.3rem;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+      font-size: 0.8rem;
     }
-    .faq-card:hover {
-      border-color: #a084ff;
-      background:#2c1e46;
-      box-shadow: 0 5px 21px #a084ff95;
+
+    .hero-badge {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(200, 180, 255, 0.4);
+      color: #e0d5ff;
     }
-    .faq-card span.faq-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 2.7em;
-      height: 2.7em;
-      background: linear-gradient(135deg, #8b5cf6 50%, #7c3aed 100%);
-      border-radius: 9999px;
-      color: #eadcff;
+
+    .hero-cta {
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-note {
+      font-size: 0.85rem;
+      color: #bdb0ff;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, #422276, #080614);
+      border-radius: 22px;
+      padding: 1.8rem 1.6rem;
+      border: 1px solid rgba(150, 120, 255, 0.4);
+      box-shadow: 0 22px 55px rgba(0, 0, 0, 0.65);
+    }
+
+    .hero-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.8rem;
+      color: var(--accent-soft);
+    }
+
+    .hero-card p {
+      font-size: 0.88rem;
+      color: #e1d6ff;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-card small {
+      display: block;
+      margin-top: 0.7rem;
+      font-size: 0.78rem;
+      color: #b9a9ff;
+    }
+
+    /* Pricing */
+    .pricing {
+      padding: 3rem 0 3.5rem;
+    }
+
+    .section-title {
+      text-align: center;
       font-size: 2rem;
-      box-shadow: 0 0 12px #181f31 inset;
-      flex-shrink: 0;
-      transition: color 0.15s, background 0.22s;
+      margin-bottom: 0.5rem;
+      color: var(--accent-soft);
     }
-    .faq-card:hover span.faq-icon {
-      background: linear-gradient(120deg, #a084ff 63%, #ea9cff 100%);
-      color: #1a164d;
-      box-shadow: 0 0 26px #be9cffaa inset;
+
+    .section-sub {
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      margin-bottom: 2.2rem;
     }
-    .faq-card span.faq-question {
-      font-weight: 600;
-      color: #e5d6fd;
-      font-size: 1.1em;
-      transition: color 0.22s;
+
+    .pricing-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
     }
-    .faq-card:hover span.faq-question {
-      color: #f3e8ff;
-      opacity: 0.96;
+
+    .pricing-card {
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 2rem;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+      border: 1px solid var(--border-soft);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 26px 60px rgba(0, 0, 0, 0.7);
+      border-color: var(--accent-soft);
+    }
+
+    .pricing-title {
+      margin: 0 0 0.25rem;
+      font-size: 1.4rem;
+      color: #ffffff;
+    }
+
+    .pricing-subtitle {
+      margin: 0 0 1.25rem;
+      color: #b5a4ff;
+      font-size: 0.95rem;
+    }
+
+    .pricing-price {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--accent-soft);
+      margin-bottom: 1rem;
+    }
+
+    .pricing-list {
+      list-style: none;
+      margin: 0 0 1.8rem;
+      padding: 0;
+      color: #e5dfff;
+      font-size: 0.95rem;
+    }
+
+    .pricing-list li {
+      margin-bottom: 0.45rem;
+      position: relative;
+      padding-left: 1.3rem;
+    }
+
+    .pricing-list li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #8fffce;
+      font-size: 0.85rem;
+    }
+
+    /* About */
+    .about {
+      padding: 3.5rem 0 4.5rem;
+      background: #050412;
+    }
+
+    .about-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      color: var(--text-main);
+    }
+
+    .about h2 {
+      font-size: 2.3rem;
+      margin-bottom: 1.5rem;
+      color: var(--accent-soft);
+    }
+
+    .about-lead {
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+      color: #dad0ff;
+    }
+
+    .about p {
+      font-size: 0.98rem;
+      color: var(--text-soft);
+    }
+
+    .about-discord {
+      margin-top: 2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 0 1.8rem;
+      font-size: 0.8rem;
+      color: #9487d0;
+      background: #04030b;
+    }
+
+    @media (max-width: 840px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 0.8rem;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        order: -1;
+      }
     }
   </style>
 </head>
-<body class="bg-gray-900 text-white">
-  <div class="bg-panels">
-    <div class="panel"></div>
-    <div class="panel"></div>
-    <div class="panel"></div>
-    <div class="panel"></div>
-  </div>
-  <nav class="fixed top-0 left-0 w-full z-20 bg-gray-950 bg-opacity-60 backdrop-blur-lg border-b border-indigo-800 shadow-xl" style="backdrop-filter: blur(16px);">
-    <div class="max-w-7xl mx-auto flex justify-between items-center px-8 py-6">
-      <span class="flex items-center">
-        <img src="/icon-nobg.png" alt="OpenBotHost logo" class="header-logo">
-        <span class="text-2xl font-bold text-indigo-400">OpenBotHost</span>
-      </span>
-      <div class="space-x-6 hidden md:block">
-        <a href="#features" class="font-medium">Features</a>
-        <a href="#how" class="font-medium">How It Works</a>
-        <a href="https://control.openbothost.com" class="bg-indigo-600 px-4 py-2 rounded font-bold text-white modern-btn">Launch Panel</a>
-      </div>
-    </div>
-  </nav>
-  <div class="feature-ribbon-container">
-    <div id="ribbonTrack" class="feature-ribbon-track">
-      <span><i class="fa-solid fa-magnifying-glass-chart"></i> Real-Time Performance Insights</span>
-      <span><i class="fa-solid fa-bolt"></i> Flexible Customization</span>
-      <span><i class="fa-solid fa-server"></i> Lightning-Fast Servers</span>
-      <span><i class="fa-solid fa-wifi"></i> Reliable Connectivity</span>
-      <span><i class="fa-solid fa-headset"></i> Friendly Support</span>
-      <span><i class="fa-solid fa-shield-halved"></i> Robust DDoS Protection</span>
-      <span><i class="fa-solid fa-gears"></i> Easy Setup</span>
-      <span><i class="fa-solid fa-expand"></i> Effortless Scalability</span>
-    </div>
-  </div>
-  <section class="py-28 text-center relative fade-in-section">
-    <h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-400 bg-clip-text text-transparent">OpenBotHost</h1>
-    <div class="mb-4 flex justify-center items-center">
-      <div id="star-rating" class="flex space-x-1 text-2xl">
-        <span class="star">&#9733;</span>
-        <span class="star">&#9733;</span>
-        <span class="star">&#9733;</span>
-        <span class="star">&#9733;</span>
-        <span class="star">&#9734;</span>
-      </div>
-      <span class="ml-3 text-xl font-bold text-yellow-300">4.8/5</span>
-    </div>
-    <p class="text-lg mb-8">Free Discord Bot Hosting 24/7 – Instantly power up your projects!</p>
-    <a href="https://control.openbothost.com" class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 px-8 py-4 rounded font-bold text-white modern-btn text-xl">Launch Panel 🚀</a>
-  </section>
-  <section class="py-16 bg-transparent fade-in-section">
-    <h2 class="text-4xl font-bold text-center mb-12 text-white">Why Choose OpenBotHost?</h2>
-    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-      <div class="transition hover:scale-105">
-        <div class="flex justify-center mb-6">
-          <i class="fa-solid fa-rocket text-4xl text-indigo-400"></i>
-        </div>
-        <h3 class="text-2xl font-bold mb-2 text-white">Reliable, Lag-Free Performance</h3>
-        <p class="text-lg text-indigo-100">Experience smooth hosting for your Discord bots, even with a large number of users and commands. Upgrade for guaranteed uptime.</p>
-      </div>
-      <div class="transition hover:scale-105">
-        <div class="flex justify-center mb-6">
-          <i class="fa-solid fa-globe text-4xl text-indigo-400"></i>
-        </div>
-        <h3 class="text-2xl font-bold mb-2 text-white">Community Support &amp; Docs</h3>
-        <p class="text-lg text-indigo-100">Get help from our friendly community, discover guides and tutorials, and unlock advanced features for your Discord bot.</p>
-      </div>
-      <div class="transition hover:scale-105">
-        <div class="flex justify-center mb-6">
-          <i class="fa-solid fa-bolt text-4xl text-indigo-400"></i>
-        </div>
-        <h3 class="text-2xl font-bold mb-2 text-white">Advanced DDoS Protection</h3>
-        <p class="text-lg text-indigo-100">Your bots and data are always safe thanks to robust DDoS defenses and secure cloud infrastructure for your projects.</p>
-      </div>
-    </div>
-  </section>
-  <section id="features" class="py-12 fade-in-section" style="background: linear-gradient(90deg, #271858 80%, #43316f 100%);">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="transition hover:scale-105">
-        <h2 class="text-2xl font-bold mb-4 text-indigo-300">Why Choose Us?</h2>
-        <ul class="space-y-3 text-lg">
-          <li>🔒 Advanced DDoS Protection</li>
-          <li>⚡ Fast, Reliable Bot Performance</li>
-          <li>🌐 Community & Tutorials</li>
-          <li>🎯 Unlimited Bot Slots</li>
-          <li>🕒 24/7 Uptime</li>
-        </ul>
-      </div>
-      <div class="transition hover:scale-105">
-        <h2 class="text-2xl font-bold mb-4 text-indigo-300">Features</h2>
-        <ul class="space-y-3 text-lg">
-          <li>👨‍💻 Real-Time Console & Logs</li>
-          <li>💾 File Manager</li>
-          <li>🔌 Module Installer</li>
-          <li>📊 Stats Monitoring</li>
-          <li>⚙️ Easy Setup Panel</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-  <section class="py-12 fade-in-section">
-    <div class="max-w-4xl mx-auto flex flex-wrap justify-around text-center gap-8">
-      <div class="stats-card px-8 py-6 rounded-xl shadow hover:animate-pulse">
-        <div class="text-3xl font-extrabold text-pink-300">341+</div>
-        <div class="text-lg">Servers Hosted</div>
-      </div>
-      <div class="stats-card px-8 py-6 rounded-xl shadow hover:animate-pulse">
-        <div class="text-3xl font-extrabold text-pink-300">207+</div>
-        <div class="text-lg">Bots Online</div>
-      </div>
-      <div class="stats-card px-8 py-6 rounded-xl shadow hover:animate-pulse">
-        <div class="text-3xl font-extrabold text-pink-300">932+</div>
-        <div class="text-lg">Total Users</div>
-      </div>
-    </div>
-  </section>
-  <section id="how" class="py-12 fade-in-section" style="background: linear-gradient(90deg,#271858 80%, #43316f 100%)">
-    <h2 class="text-2xl font-bold text-center mb-6 text-indigo-300">How to Get Started</h2>
-    <ol class="max-w-2xl mx-auto space-y-4 text-left text-lg">
-      <li>1. Sign up for free – No credit card required.</li>
-      <li>2. Create a bot server and choose your stack (Node.js, Python, etc.).</li>
-      <li>3. Upload your bot files or paste your code.</li>
-      <li>4. Configure settings, set environment variables.</li>
-      <li>5. Launch your bot in one click – Monitor with our control panel.</li>
-    </ol>
-  </section>
-  <!-- FAQ SECTION — purple themed -->
-  <section class="py-16 fade-in-section">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-      <!-- Left Card -->
-      <div class="faq-left-card">
-        <h2 class="text-3xl md:text-4xl font-bold text-purple-400 mb-4">Frequently Asked Questions</h2>
-        <p class="text-purple-200 mb-8">
-          Find answers to some of the most common questions below. If you can't find what you're looking for, feel free to reach out to our support team or visit our knowledge base.
+<body>
+  <header>
+    <div class="logo">OpenBotHost</div>
+    <nav>
+      <a href="#pricing">Pricing</a>
+      <a href="#about">About</a>
+      <a href="#panel" class="btn-secondary">Panel</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <h1 class="hero-title">
+          Free Discord Bot Hosting <span>24/7</span>
+        </h1>
+        <p class="hero-sub">
+          Instantly power up your Discord bots with always‑on hosting, automatic restarts,
+          and a panel that feels built for developers.
         </p>
-        <a href="#" class="faq-side-btn">
-          Visit Knowledge Base
-          <span class="ml-2"><i class="fa-solid fa-arrow-right"></i></span>
+        <div class="hero-badges">
+          <span class="hero-badge">Free tier available</span>
+          <span class="hero-badge">Node.js &amp; Python support</span>
+          <span class="hero-badge">DDoS protected</span>
+        </div>
+        <div class="hero-cta">
+          <a href="#panel" class="btn-primary">Launch Panel 🚀</a>
+          <a href="#about" class="btn-secondary">Learn more</a>
+        </div>
+        <p class="hero-note">
+          Experience smooth hosting for your Discord bots, even with a large number of users and commands.
+        </p>
+      </div>
+
+      <aside class="hero-card">
+        <h3>Why OpenBotHost?</h3>
+        <p>Fast, simple, and scalable hosting for Discord bots, game servers, and web projects.</p>
+        <p>Secure cloud infrastructure with robust DDoS protection keeps your projects safe.</p>
+        <small>
+          Get help from our friendly community, discover guides and tutorials, and unlock advanced features
+          for your Discord bot.
+        </small>
+      </aside>
+    </section>
+
+    <!-- Pricing / Features -->
+    <section class="pricing" id="pricing">
+      <h2 class="section-title">What You Can Host</h2>
+      <p class="section-sub">
+        Host Discord bots, game servers, and websites on the same platform with our free tier.
+      </p>
+
+      <div class="pricing-container">
+        <!-- Discord Bot -->
+        <div class="pricing-card">
+          <h3 class="pricing-title">Discord Bot</h3>
+          <p class="pricing-subtitle">Perfect for Discord developers</p>
+          <p class="pricing-price">Free</p>
+          <ul class="pricing-list">
+            <li>24/7 Uptime Guarantee</li>
+            <li>Unlimited Bots</li>
+            <li>Automatic Restarts</li>
+            <li>Real-time Logs</li>
+            <li>Easy File Manager</li>
+            <li>Node.js &amp; Python Support</li>
+          </ul>
+          <a href="#panel" class="btn-primary">Get Started</a>
+        </div>
+
+        <!-- Game Server -->
+        <div class="pricing-card">
+          <h3 class="pricing-title">Game Server</h3>
+          <p class="pricing-subtitle">Host your favorite games</p>
+          <p class="pricing-price">Free</p>
+          <ul class="pricing-list">
+            <li>Multiple Game Support</li>
+            <li>DDoS Protection</li>
+            <li>Instant Setup</li>
+            <li>Custom Plugins</li>
+            <li>Auto Backups</li>
+            <li>FTP Access</li>
+          </ul>
+          <a href="#panel" class="btn-primary">Get Started</a>
+        </div>
+
+        <!-- Website -->
+        <div class="pricing-card">
+          <h3 class="pricing-title">Website</h3>
+          <p class="pricing-subtitle">Fast &amp; reliable web hosting</p>
+          <p class="pricing-price">Free</p>
+          <ul class="pricing-list">
+            <li>Free SSL Certificate</li>
+            <li>Custom Domains</li>
+            <li>CDN Included</li>
+            <li>99.9% Uptime</li>
+            <li>Unlimited Bandwidth</li>
+            <li>PHP &amp; MySQL Support</li>
+          </ul>
+          <a href="#panel" class="btn-primary">Get Started</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us -->
+    <section class="about" id="about">
+      <div class="about-inner">
+        <h2>About Us</h2>
+        <p class="about-lead">
+          We're a startup on a mission to make web and bot hosting simple and accessible for everyone.
+        </p>
+        <p>
+          Host websites, Discord bots, and game servers with just a few clicks using our modern,
+          developer‑friendly platform. Join our Discord community to connect with other users, get support,
+          share feedback, and help shape the future of OpenBotHost.
+        </p>
+        <a href="https://discord.gg/yourinvite" class="btn-primary about-discord">
+          Join Our Discord
         </a>
       </div>
-      <div>
-        <div class="faq-card group">
-          <span class="faq-icon"><i class="fa-solid fa-question"></i></span>
-          <span class="faq-question">How do I set up a free Discord bot server?</span>
-        </div>
-        <div class="faq-card group">
-          <span class="faq-icon"><i class="fa-solid fa-plug"></i></span>
-          <span class="faq-question">Can I install npm packages, modules, or plugins?</span>
-        </div>
-        <div class="faq-card group">
-          <span class="faq-icon"><i class="fa-solid fa-users"></i></span>
-          <span class="faq-question">How many users can my bot support?</span>
-        </div>
-        <div class="faq-card group">
-          <span class="faq-icon"><i class="fa-solid fa-shield-halved"></i></span>
-          <span class="faq-question">Is my data secure on free hosting?</span>
-        </div>
-        <div class="faq-card group">
-          <span class="faq-icon"><i class="fa-solid fa-gauge"></i></span>
-          <span class="faq-question">Will my Discord bot experience lag?</span>
-        </div>
-        <div class="faq-card group">
-          <span class="faq-icon"><i class="fa-solid fa-server"></i></span>
-          <span class="faq-question">Which bot runtimes are supported?</span>
-        </div>
-        <div class="faq-card group">
-          <span class="faq-icon"><i class="fa-solid fa-microchip"></i></span>
-          <span class="faq-question">Can I customize RAM or CPU?</span>
-        </div>
-        <div class="faq-card group">
-          <span class="faq-icon"><i class="fa-solid fa-boxes-stacked"></i></span>
-          <span class="faq-question">Can I host bots with multiple processes or shards?</span>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- END FAQ -->
-  <footer class="pt-12 pb-4 bg-[#171f3a] fade-in-section">
-    <div class="flex justify-center mb-8">
-      <img src="/icon-nobg.png" alt="OpenBotHost logo" class="footer-logo">
-    </div>
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center pb-8 text-white">
-      <div>
-        <h4 class="font-bold text-lg mb-2 text-indigo-200">Our Services</h4>
-        <ul class="space-y-1 text-indigo-100">
-          <li>Discord Bot Hosting</li>
-          <li>Free Node.js Hosting</li>
-          <li>Start Your Own Bot</li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-bold text-lg mb-2 text-indigo-200">Support</h4>
-        <ul class="space-y-1 text-indigo-100">
-          <li><a href="#">Open Support Ticket</a></li>
-          <li><a href="#">View Support Tickets</a></li>
-          <li><a href="#">Knowledge Base</a></li>
-          <li><a href="#">Report Abuse</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-bold text-lg mb-2 text-indigo-200">Knowledge Feed</h4>
-        <ul class="space-y-1 text-indigo-100">
-          <li><a href="#">How to host a bot?</a></li>
-          <li><a href="#">Best Node.js bot frameworks</a></li>
-          <li><a href="#">How to scale a bot?</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-bold text-lg mb-2 text-indigo-200">Blog</h4>
-        <ul class="space-y-1 text-indigo-100">
-          <li><a href="#">Free plan updates</a></li>
-          <li><a href="#">Featured: Discord Module Installer</a></li>
-          <li><a href="#">Introducing Bot Manager</a></li>
-        </ul>
-      </div>
-    </div>
-    <hr class="my-5 border-indigo-900">
-    <div class="flex flex-wrap justify-center gap-4 text-md text-indigo-200 mb-4">
-      <a href="#">Imprint</a>
-      <a href="#">User Agreement</a>
-      <a href="#">Privacy Notice</a>
-      <a href="#">AUP</a>
-      <a href="#">SLA</a>
-    </div>
-    <div class="text-center text-xs text-indigo-100 pb-2 pt-2">
-      © 2025 OpenBotHost. We are not affiliated with Discord or any other brands shown in this site.
-    </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> OpenBotHost · All rights reserved.
   </footer>
+
   <script>
-    function shineStars() {
-      const stars = document.querySelectorAll('.star');
-      let shineIdx = 0;
-      setInterval(() => {
-        stars.forEach((star, idx) => star.classList.toggle('shine', idx <= shineIdx));
-        shineIdx = (shineIdx + 1) % 5;
-      }, 600);
-    }
-    shineStars();
-    const ribbonTrack = document.getElementById('ribbonTrack');
-    const ribbonClone = ribbonTrack.cloneNode(true);
-    ribbonTrack.parentNode.appendChild(ribbonClone);
-    ribbonClone.style.position = 'absolute';
-    ribbonClone.style.left = ribbonTrack.offsetWidth + 'px';
-    ribbonClone.style.top = '0';
-    let ribbonOffset = 0, speed = 1.1;
-    function animateRibbon() {
-      ribbonOffset -= speed;
-      if (ribbonOffset <= -ribbonTrack.offsetWidth) {
-        ribbonOffset = 0;
-      }
-      ribbonTrack.style.transform = `translateX(${ribbonOffset}px)`;
-      ribbonClone.style.transform = `translateX(${ribbonOffset + ribbonTrack.offsetWidth}px)`;
-      requestAnimationFrame(animateRibbon);
-    }
-    animateRibbon();
-    // Fade-in sections when scrolled into view
-    const fadeSections = document.querySelectorAll('.fade-in-section');
-    function handleFadeAnimation() {
-      fadeSections.forEach((section) => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 120) {
-          section.classList.add('visible');
-        } else {
-          section.classList.remove('visible');
-        }
-      });
-    }
-    handleFadeAnimation();
-    window.addEventListener('scroll', handleFadeAnimation);
-    window.addEventListener('resize', handleFadeAnimation);
-    window.addEventListener('scroll', () => {
-      const panels = document.querySelectorAll('.panel');
-      let scrollPercent = window.scrollY / document.body.scrollHeight;
-      panels.forEach((panel, i) => {
-        panel.style.transform = `translateY(${scrollPercent * (40 + 25*i)}px)`;
-      });
-    });
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
