@@ -429,32 +429,91 @@
     <a href="https://control.openbothost.com" class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 px-8 py-4 rounded font-bold text-white modern-btn text-xl">Launch Panel 🚀</a>
   </section>
 
-  <!-- NEW: About Us Section -->
-  <section id="about" class="fade-in-section">
-    <div class="about-section">
-      <h1 class="about-title gradient-text">About Us</h1>
-      <div class="about-content">
-        <p>We're a startup on a mission to revolutionize web hosting solutions. Our platform makes it simple for anyone to host websites, Discord bots, and game servers with just a few clicks.</p>
-        <p class="mt-6 text-xl font-semibold text-purple-200">We're building something special, and we'd love for you to be part of our journey!</p>
-        <p class="mt-4">Join our Discord community to connect with other users, get support, share feedback, and help us grow. Every member makes a difference in shaping the future of our platform.</p>
-      </div>
-      <div class="mt-8 pt-6 border-t border-purple-800">
-        <div class="flex items-center mb-4">
-          <span class="about-checkbox"></span>
-          <span class="text-lg text-purple-200">Join Our Discord</span>
+  <!-- Why Choose OpenBotHost? Section - MOVED UP -->
+  <section class="py-16 bg-transparent fade-in-section">
+    <h2 class="text-4xl font-bold text-center mb-12 text-white">Why Choose OpenBotHost?</h2>
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+      <div class="transition hover:scale-105">
+        <div class="flex justify-center mb-6">
+          <i class="fa-solid fa-rocket text-4xl text-indigo-400"></i>
         </div>
-        <p class="text-purple-300 ml-8">Help us build the community together!</p>
+        <h3 class="text-2xl font-bold mb-2 text-white">Reliable, Lag-Free Performance</h3>
+        <p class="text-lg text-indigo-100">Experience smooth hosting for your Discord bots, even with a large number of users and commands. Upgrade for guaranteed uptime.</p>
       </div>
-      <div class="text-center mt-8">
-        <a href="#" class="about-cta float-animation">
-          <i class="fab fa-discord"></i>
-          Join Our Discord Community
-        </a>
+      <div class="transition hover:scale-105">
+        <div class="flex justify-center mb-6">
+          <i class="fa-solid fa-globe text-4xl text-indigo-400"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-2 text-white">Community Support &amp; Docs</h3>
+        <p class="text-lg text-indigo-100">Get help from our friendly community, discover guides and tutorials, and unlock advanced features for your Discord bot.</p>
+      </div>
+      <div class="transition hover:scale-105">
+        <div class="flex justify-center mb-6">
+          <i class="fa-solid fa-bolt text-4xl text-indigo-400"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-2 text-white">Advanced DDoS Protection</h3>
+        <p class="text-lg text-indigo-100">Your bots and data are always safe thanks to robust DDoS defenses and secure cloud infrastructure for your projects.</p>
       </div>
     </div>
   </section>
 
-  <!-- NEW: Products Section -->
+  <!-- Features Section -->
+  <section id="features" class="py-12 fade-in-section" style="background: linear-gradient(90deg, #271858 80%, #43316f 100%);">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="transition hover:scale-105">
+        <h2 class="text-2xl font-bold mb-4 text-indigo-300">Why Choose Us?</h2>
+        <ul class="space-y-3 text-lg">
+          <li>🔒 Advanced DDoS Protection</li>
+          <li>⚡ Fast, Reliable Bot Performance</li>
+          <li>🌐 Community & Tutorials</li>
+          <li>🎯 Unlimited Bot Slots</li>
+          <li>🕒 24/7 Uptime</li>
+        </ul>
+      </div>
+      <div class="transition hover:scale-105">
+        <h2 class="text-2xl font-bold mb-4 text-indigo-300">Features</h2>
+        <ul class="space-y-3 text-lg">
+          <li>👨‍💻 Real-Time Console & Logs</li>
+          <li>💾 File Manager</li>
+          <li>🔌 Module Installer</li>
+          <li>📊 Stats Monitoring</li>
+          <li>⚙️ Easy Setup Panel</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-12 fade-in-section">
+    <div class="max-w-4xl mx-auto flex flex-wrap justify-around text-center gap-8">
+      <div class="stats-card px-8 py-6 rounded-xl shadow hover:animate-pulse">
+        <div class="text-3xl font-extrabold text-pink-300">341+</div>
+        <div class="text-lg">Servers Hosted</div>
+      </div>
+      <div class="stats-card px-8 py-6 rounded-xl shadow hover:animate-pulse">
+        <div class="text-3xl font-extrabold text-pink-300">207+</div>
+        <div class="text-lg">Bots Online</div>
+      </div>
+      <div class="stats-card px-8 py-6 rounded-xl shadow hover:animate-pulse">
+        <div class="text-3xl font-extrabold text-pink-300">932+</div>
+        <div class="text-lg">Total Users</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how" class="py-12 fade-in-section" style="background: linear-gradient(90deg,#271858 80%, #43316f 100%)">
+    <h2 class="text-2xl font-bold text-center mb-6 text-indigo-300">How to Get Started</h2>
+    <ol class="max-w-2xl mx-auto space-y-4 text-left text-lg">
+      <li>1. Sign up for free – No credit card required.</li>
+      <li>2. Create a bot server and choose your stack (Node.js, Python, etc.).</li>
+      <li>3. Upload your bot files or paste your code.</li>
+      <li>4. Configure settings, set environment variables.</li>
+      <li>5. Launch your bot in one click – Monitor with our control panel.</li>
+    </ol>
+  </section>
+
+  <!-- NEW: Products Section - MOVED DOWN -->
   <section id="products" class="products-section fade-in-section">
     <h2 class="products-title">Our Hosting Solutions</h2>
     <div class="product-grid">
@@ -523,85 +582,29 @@
     </div>
   </section>
 
-  <!-- Existing sections continue... -->
-  <section class="py-16 bg-transparent fade-in-section">
-    <h2 class="text-4xl font-bold text-center mb-12 text-white">Why Choose OpenBotHost?</h2>
-    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-      <div class="transition hover:scale-105">
-        <div class="flex justify-center mb-6">
-          <i class="fa-solid fa-rocket text-4xl text-indigo-400"></i>
-        </div>
-        <h3 class="text-2xl font-bold mb-2 text-white">Reliable, Lag-Free Performance</h3>
-        <p class="text-lg text-indigo-100">Experience smooth hosting for your Discord bots, even with a large number of users and commands. Upgrade for guaranteed uptime.</p>
+  <!-- NEW: About Us Section - MOVED DOWN -->
+  <section id="about" class="fade-in-section">
+    <div class="about-section">
+      <h1 class="about-title gradient-text">About Us</h1>
+      <div class="about-content">
+        <p>We're a startup on a mission to revolutionize web hosting solutions. Our platform makes it simple for anyone to host websites, Discord bots, and game servers with just a few clicks.</p>
+        <p class="mt-6 text-xl font-semibold text-purple-200">We're building something special, and we'd love for you to be part of our journey!</p>
+        <p class="mt-4">Join our Discord community to connect with other users, get support, share feedback, and help us grow. Every member makes a difference in shaping the future of our platform.</p>
       </div>
-      <div class="transition hover:scale-105">
-        <div class="flex justify-center mb-6">
-          <i class="fa-solid fa-globe text-4xl text-indigo-400"></i>
+      <div class="mt-8 pt-6 border-t border-purple-800">
+        <div class="flex items-center mb-4">
+          <span class="about-checkbox"></span>
+          <span class="text-lg text-purple-200">Join Our Discord</span>
         </div>
-        <h3 class="text-2xl font-bold mb-2 text-white">Community Support &amp; Docs</h3>
-        <p class="text-lg text-indigo-100">Get help from our friendly community, discover guides and tutorials, and unlock advanced features for your Discord bot.</p>
+        <p class="text-purple-300 ml-8">Help us build the community together!</p>
       </div>
-      <div class="transition hover:scale-105">
-        <div class="flex justify-center mb-6">
-          <i class="fa-solid fa-bolt text-4xl text-indigo-400"></i>
-        </div>
-        <h3 class="text-2xl font-bold mb-2 text-white">Advanced DDoS Protection</h3>
-        <p class="text-lg text-indigo-100">Your bots and data are always safe thanks to robust DDoS defenses and secure cloud infrastructure for your projects.</p>
+      <div class="text-center mt-8">
+        <a href="#" class="about-cta float-animation">
+          <i class="fab fa-discord"></i>
+          Join Our Discord Community
+        </a>
       </div>
     </div>
-  </section>
-
-  <section id="features" class="py-12 fade-in-section" style="background: linear-gradient(90deg, #271858 80%, #43316f 100%);">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="transition hover:scale-105">
-        <h2 class="text-2xl font-bold mb-4 text-indigo-300">Why Choose Us?</h2>
-        <ul class="space-y-3 text-lg">
-          <li>🔒 Advanced DDoS Protection</li>
-          <li>⚡ Fast, Reliable Bot Performance</li>
-          <li>🌐 Community & Tutorials</li>
-          <li>🎯 Unlimited Bot Slots</li>
-          <li>🕒 24/7 Uptime</li>
-        </ul>
-      </div>
-      <div class="transition hover:scale-105">
-        <h2 class="text-2xl font-bold mb-4 text-indigo-300">Features</h2>
-        <ul class="space-y-3 text-lg">
-          <li>👨‍💻 Real-Time Console & Logs</li>
-          <li>💾 File Manager</li>
-          <li>🔌 Module Installer</li>
-          <li>📊 Stats Monitoring</li>
-          <li>⚙️ Easy Setup Panel</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-12 fade-in-section">
-    <div class="max-w-4xl mx-auto flex flex-wrap justify-around text-center gap-8">
-      <div class="stats-card px-8 py-6 rounded-xl shadow hover:animate-pulse">
-        <div class="text-3xl font-extrabold text-pink-300">341+</div>
-        <div class="text-lg">Servers Hosted</div>
-      </div>
-      <div class="stats-card px-8 py-6 rounded-xl shadow hover:animate-pulse">
-        <div class="text-3xl font-extrabold text-pink-300">207+</div>
-        <div class="text-lg">Bots Online</div>
-      </div>
-      <div class="stats-card px-8 py-6 rounded-xl shadow hover:animate-pulse">
-        <div class="text-3xl font-extrabold text-pink-300">932+</div>
-        <div class="text-lg">Total Users</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="how" class="py-12 fade-in-section" style="background: linear-gradient(90deg,#271858 80%, #43316f 100%)">
-    <h2 class="text-2xl font-bold text-center mb-6 text-indigo-300">How to Get Started</h2>
-    <ol class="max-w-2xl mx-auto space-y-4 text-left text-lg">
-      <li>1. Sign up for free – No credit card required.</li>
-      <li>2. Create a bot server and choose your stack (Node.js, Python, etc.).</li>
-      <li>3. Upload your bot files or paste your code.</li>
-      <li>4. Configure settings, set environment variables.</li>
-      <li>5. Launch your bot in one click – Monitor with our control panel.</li>
-    </ol>
   </section>
 
   <!-- FAQ SECTION — purple themed -->
