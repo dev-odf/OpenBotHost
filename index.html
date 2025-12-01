@@ -49,15 +49,30 @@
     .modern-btn {
       box-shadow: 0 5px 20px #5f329b55, 0 2px 6px #2a255e33; animation: bounceGlow 2s infinite alternate;
       transition: background 0.2s, transform 0.15s;
+      background: linear-gradient(90deg,#6e45e2 66%,#885bea 100%);
     }
     .modern-btn:hover {
       transform: scale(1.07) rotate(-2deg)!important;
+      background: linear-gradient(90deg,#885bea 66%,#6e45e2 100%);
+      filter: brightness(1.18) drop-shadow(0 0 12px #9f65e7bb);
+    }
+    .modern-btn-secondary {
+      box-shadow: 0 5px 20px #5f329b55, 0 2px 6px #2a255e33; animation: bounceGlowSecondary 2s infinite alternate;
+      transition: background 0.2s, transform 0.15s;
+      background: linear-gradient(90deg,#885bea 66%,#6e45e2 100%);
+    }
+    .modern-btn-secondary:hover {
+      transform: scale(1.07) rotate(2deg)!important;
       background: linear-gradient(90deg,#6e45e2 66%,#885bea 100%);
       filter: brightness(1.18) drop-shadow(0 0 12px #9f65e7bb);
     }
     @keyframes bounceGlow {
       0% { box-shadow: 0 5px 20px #5f329b55;}
       100% { box-shadow: 0 10px 32px #b980ff99;}
+    }
+    @keyframes bounceGlowSecondary {
+      0% { box-shadow: 0 5px 20px #5f329b55;}
+      100% { box-shadow: 0 10px 32px #ff980099;}
     }
     @keyframes fadeUp {
       0% { opacity:0; transform:translateY(42px);}
@@ -390,11 +405,12 @@
         <img src="/icon-nobg.png" alt="OpenBotHost logo" class="header-logo">
         <span class="text-2xl font-bold text-indigo-400">OpenBotHost</span>
       </span>
-      <div class="space-x-6 hidden md:block">
-        <a href="#features" class="font-medium">Features</a>
-        <a href="#how" class="font-medium">How It Works</a>
-        <a href="#products" class="font-medium">Products</a>
-        <a href="#about" class="font-medium">About Us</a>
+      <div class="space-x-4 hidden md:flex items-center">
+        <a href="#features" class="font-medium hover:text-purple-300 transition duration-300">Features</a>
+        <a href="#how" class="font-medium hover:text-purple-300 transition duration-300">How It Works</a>
+        <a href="#products" class="font-medium hover:text-purple-300 transition duration-300">Products</a>
+        <a href="#about" class="font-medium hover:text-purple-300 transition duration-300">About Us</a>
+        <a href="https://control.openbothost.com" class="px-4 py-2 rounded font-bold text-white modern-btn-secondary">Dashboard</a>
         <a href="https://control.openbothost.com" class="bg-indigo-600 px-4 py-2 rounded font-bold text-white modern-btn">Launch Panel</a>
       </div>
     </div>
@@ -426,7 +442,10 @@
       <span class="ml-3 text-xl font-bold text-yellow-300">4.8/5</span>
     </div>
     <p class="text-lg mb-8">Free Discord Bot Hosting 24/7 – Instantly power up your projects!</p>
-    <a href="https://control.openbothost.com" class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 px-8 py-4 rounded font-bold text-white modern-btn text-xl">Launch Panel 🚀</a>
+    <div class="flex flex-wrap justify-center gap-6">
+      <a href="https://control.openbothost.com" class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 px-8 py-4 rounded font-bold text-white modern-btn text-xl">Launch Panel 🚀</a>
+      <a href="https://control.openbothost.com" class="bg-gradient-to-r from-purple-600 to-pink-500 px-8 py-4 rounded font-bold text-white modern-btn-secondary text-xl">Dashboard 📊</a>
+    </div>
   </section>
 
   <!-- Why Choose OpenBotHost? Section - MOVED UP -->
@@ -599,7 +618,7 @@
         <p class="text-purple-300 ml-8">Help us build the community together!</p>
       </div>
       <div class="text-center mt-8">
-        <a href="#" class="about-cta float-animation">
+        <a href="https://discord.gg/Z8CN6eMpY7" class="about-cta float-animation" target="_blank">
           <i class="fab fa-discord"></i>
           Join Our Discord Community
         </a>
