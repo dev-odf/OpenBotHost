@@ -73,6 +73,7 @@
       background: linear-gradient(120deg, #3b2077 63%, #7e3ff7 100%);
     }
     .footer-logo { height: 78px; width:78px; border-radius:22px; background:transparent; box-shadow:0 0 14px #6366f1; animation: fadeDown 1.3s; }
+    
     /* FAQ Section Styling – PURPLE/INDIGO THEME */
     .faq-left-card {
       background: #251a39;
@@ -146,6 +147,233 @@
       color: #f3e8ff;
       opacity: 0.96;
     }
+
+    /* NEW: About Us Section */
+    .about-section {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+      border-radius: 2rem;
+      padding: 3.5rem;
+      margin: 4rem auto;
+      max-width: 900px;
+      box-shadow: 0 20px 40px rgba(91, 33, 182, 0.3);
+      border: 1px solid #4c1d95;
+    }
+    .about-title {
+      font-size: 2.8rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #a78bfa, #c4b5fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .about-content {
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: #e0e7ff;
+      margin-bottom: 2rem;
+    }
+    .about-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(90deg, #7c3aed, #8b5cf6);
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
+    }
+    .about-cta:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(124, 58, 237, 0.6);
+      background: linear-gradient(90deg, #8b5cf6, #7c3aed);
+    }
+    .about-checkbox {
+      width: 22px;
+      height: 22px;
+      border: 2px solid #a78bfa;
+      border-radius: 4px;
+      display: inline-block;
+      margin-right: 10px;
+      vertical-align: middle;
+      position: relative;
+    }
+    .about-checkbox::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 12px;
+      height: 12px;
+      background: #a78bfa;
+      border-radius: 2px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    /* NEW: Product Cards Section */
+    .products-section {
+      padding: 5rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .products-title {
+      font-size: 3rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 4rem;
+      background: linear-gradient(90deg, #818cf8, #c4b5fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+    }
+    .product-card {
+      background: linear-gradient(145deg, #1e1b4b, #312e81);
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+      border: 1px solid #4c1d95;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #7c3aed, #a78bfa, #7c3aed);
+      background-size: 200% 100%;
+      animation: shimmer 3s infinite linear;
+    }
+    .product-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 25px 50px rgba(124, 58, 237, 0.3);
+      border-color: #a78bfa;
+    }
+    .product-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .product-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #7c3aed, #a78bfa);
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: white;
+      box-shadow: 0 10px 20px rgba(124, 58, 237, 0.4);
+    }
+    .product-badge {
+      background: linear-gradient(90deg, #10b981, #34d399);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+    }
+    .product-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #e0e7ff;
+      margin-bottom: 1rem;
+    }
+    .product-subtitle {
+      color: #a5b4fc;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    .product-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2.5rem 0;
+    }
+    .product-features li {
+      color: #c7d2fe;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .product-features li:last-child {
+      border-bottom: none;
+    }
+    .product-features li::before {
+      content: '✓';
+      color: #a78bfa;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .product-button {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(90deg, #7c3aed, #8b5cf6);
+      color: white;
+      border: none;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 20px rgba(124, 58, 237, 0.4);
+    }
+    .product-button:hover {
+      background: linear-gradient(90deg, #8b5cf6, #7c3aed);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(124, 58, 237, 0.5);
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    /* NEW: Enhanced Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .float-animation {
+      animation: float 4s ease-in-out infinite;
+    }
+    
+    /* NEW: Gradient Text Effects */
+    .gradient-text {
+      background: linear-gradient(90deg, #818cf8, #c4b5fd, #818cf8);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textShine 3s linear infinite;
+    }
+    @keyframes textShine {
+      to { background-position: 200% center; }
+    }
+
+    /* NEW: Enhanced Shadows */
+    .glow-shadow {
+      box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+    }
+    .glow-shadow:hover {
+      box-shadow: 0 0 50px rgba(139, 92, 246, 0.5);
+    }
   </style>
 </head>
 <body class="bg-gray-900 text-white">
@@ -155,6 +383,7 @@
     <div class="panel"></div>
     <div class="panel"></div>
   </div>
+  
   <nav class="fixed top-0 left-0 w-full z-20 bg-gray-950 bg-opacity-60 backdrop-blur-lg border-b border-indigo-800 shadow-xl" style="backdrop-filter: blur(16px);">
     <div class="max-w-7xl mx-auto flex justify-between items-center px-8 py-6">
       <span class="flex items-center">
@@ -164,10 +393,13 @@
       <div class="space-x-6 hidden md:block">
         <a href="#features" class="font-medium">Features</a>
         <a href="#how" class="font-medium">How It Works</a>
+        <a href="#products" class="font-medium">Products</a>
+        <a href="#about" class="font-medium">About Us</a>
         <a href="https://control.openbothost.com" class="bg-indigo-600 px-4 py-2 rounded font-bold text-white modern-btn">Launch Panel</a>
       </div>
     </div>
   </nav>
+
   <div class="feature-ribbon-container">
     <div id="ribbonTrack" class="feature-ribbon-track">
       <span><i class="fa-solid fa-magnifying-glass-chart"></i> Real-Time Performance Insights</span>
@@ -180,6 +412,7 @@
       <span><i class="fa-solid fa-expand"></i> Effortless Scalability</span>
     </div>
   </div>
+
   <section class="py-28 text-center relative fade-in-section">
     <h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-400 bg-clip-text text-transparent">OpenBotHost</h1>
     <div class="mb-4 flex justify-center items-center">
@@ -195,6 +428,102 @@
     <p class="text-lg mb-8">Free Discord Bot Hosting 24/7 – Instantly power up your projects!</p>
     <a href="https://control.openbothost.com" class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 px-8 py-4 rounded font-bold text-white modern-btn text-xl">Launch Panel 🚀</a>
   </section>
+
+  <!-- NEW: About Us Section -->
+  <section id="about" class="fade-in-section">
+    <div class="about-section">
+      <h1 class="about-title gradient-text">About Us</h1>
+      <div class="about-content">
+        <p>We're a startup on a mission to revolutionize web hosting solutions. Our platform makes it simple for anyone to host websites, Discord bots, and game servers with just a few clicks.</p>
+        <p class="mt-6 text-xl font-semibold text-purple-200">We're building something special, and we'd love for you to be part of our journey!</p>
+        <p class="mt-4">Join our Discord community to connect with other users, get support, share feedback, and help us grow. Every member makes a difference in shaping the future of our platform.</p>
+      </div>
+      <div class="mt-8 pt-6 border-t border-purple-800">
+        <div class="flex items-center mb-4">
+          <span class="about-checkbox"></span>
+          <span class="text-lg text-purple-200">Join Our Discord</span>
+        </div>
+        <p class="text-purple-300 ml-8">Help us build the community together!</p>
+      </div>
+      <div class="text-center mt-8">
+        <a href="#" class="about-cta float-animation">
+          <i class="fab fa-discord"></i>
+          Join Our Discord Community
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW: Products Section -->
+  <section id="products" class="products-section fade-in-section">
+    <h2 class="products-title">Our Hosting Solutions</h2>
+    <div class="product-grid">
+      <!-- Discord Bot Card -->
+      <div class="product-card glow-shadow">
+        <div class="product-header">
+          <div class="product-icon">
+            <i class="fab fa-discord"></i>
+          </div>
+          <span class="product-badge">Free</span>
+        </div>
+        <h3 class="product-title">Discord Bot</h3>
+        <p class="product-subtitle">Perfect for Discord developers</p>
+        <ul class="product-features">
+          <li>24/7 Uptime Guarantee</li>
+          <li>Unlimited Bots</li>
+          <li>Automatic Restarts</li>
+          <li>Real-time Logs</li>
+          <li>Easy File Manager</li>
+          <li>Node.js & Python Support</li>
+        </ul>
+        <button class="product-button">Get Started</button>
+      </div>
+
+      <!-- Game Server Card -->
+      <div class="product-card glow-shadow">
+        <div class="product-header">
+          <div class="product-icon">
+            <i class="fas fa-gamepad"></i>
+          </div>
+          <span class="product-badge">Free</span>
+        </div>
+        <h3 class="product-title">Game Server</h3>
+        <p class="product-subtitle">Host your favorite games</p>
+        <ul class="product-features">
+          <li>Multiple Game Support</li>
+          <li>DDoS Protection</li>
+          <li>Instant Setup</li>
+          <li>Custom Plugins</li>
+          <li>Auto Backups</li>
+          <li>FTP Access</li>
+        </ul>
+        <button class="product-button">Get Started</button>
+      </div>
+
+      <!-- Website Card -->
+      <div class="product-card glow-shadow">
+        <div class="product-header">
+          <div class="product-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <span class="product-badge">Free</span>
+        </div>
+        <h3 class="product-title">Website</h3>
+        <p class="product-subtitle">Fast & reliable web hosting</p>
+        <ul class="product-features">
+          <li>Free SSL Certificate</li>
+          <li>Custom Domains</li>
+          <li>CDN Included</li>
+          <li>99.9% Uptime</li>
+          <li>Unlimited Bandwidth</li>
+          <li>PHP & MySQL Support</li>
+        </ul>
+        <button class="product-button">Get Started</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Existing sections continue... -->
   <section class="py-16 bg-transparent fade-in-section">
     <h2 class="text-4xl font-bold text-center mb-12 text-white">Why Choose OpenBotHost?</h2>
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
@@ -221,6 +550,7 @@
       </div>
     </div>
   </section>
+
   <section id="features" class="py-12 fade-in-section" style="background: linear-gradient(90deg, #271858 80%, #43316f 100%);">
     <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
       <div class="transition hover:scale-105">
@@ -245,6 +575,7 @@
       </div>
     </div>
   </section>
+
   <section class="py-12 fade-in-section">
     <div class="max-w-4xl mx-auto flex flex-wrap justify-around text-center gap-8">
       <div class="stats-card px-8 py-6 rounded-xl shadow hover:animate-pulse">
@@ -261,6 +592,7 @@
       </div>
     </div>
   </section>
+
   <section id="how" class="py-12 fade-in-section" style="background: linear-gradient(90deg,#271858 80%, #43316f 100%)">
     <h2 class="text-2xl font-bold text-center mb-6 text-indigo-300">How to Get Started</h2>
     <ol class="max-w-2xl mx-auto space-y-4 text-left text-lg">
@@ -271,6 +603,7 @@
       <li>5. Launch your bot in one click – Monitor with our control panel.</li>
     </ol>
   </section>
+
   <!-- FAQ SECTION — purple themed -->
   <section class="py-16 fade-in-section">
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -322,6 +655,7 @@
     </div>
   </section>
   <!-- END FAQ -->
+
   <footer class="pt-12 pb-4 bg-[#171f3a] fade-in-section">
     <div class="flex justify-center mb-8">
       <img src="/icon-nobg.png" alt="OpenBotHost logo" class="footer-logo">
@@ -373,6 +707,7 @@
       © 2025 OpenBotHost. We are not affiliated with Discord or any other brands shown in this site.
     </div>
   </footer>
+
   <script>
     function shineStars() {
       const stars = document.querySelectorAll('.star');
@@ -420,6 +755,47 @@
       let scrollPercent = window.scrollY / document.body.scrollHeight;
       panels.forEach((panel, i) => {
         panel.style.transform = `translateY(${scrollPercent * (40 + 25*i)}px)`;
+      });
+    });
+
+    // NEW: Interactive checkbox animation
+    document.querySelectorAll('.about-checkbox').forEach(checkbox => {
+      checkbox.addEventListener('click', function() {
+        this.classList.toggle('checked');
+        const after = this.style;
+        if (this.classList.contains('checked')) {
+          this.style.setProperty('--after-opacity', '1');
+          this.style.opacity = '1';
+        } else {
+          this.style.setProperty('--after-opacity', '0');
+          this.style.opacity = '0.5';
+        }
+      });
+    });
+
+    // NEW: Product card hover effects
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-15px) scale(1.02)';
+      });
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+      });
+    });
+
+    // NEW: Smooth scrolling for navigation
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if(targetId === '#') return;
+        const targetElement = document.querySelector(targetId);
+        if(targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
       });
     });
   </script>
